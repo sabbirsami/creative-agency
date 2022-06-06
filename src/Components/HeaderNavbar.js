@@ -5,8 +5,8 @@ import CustomLink from "../Shared/CustomLink";
 
 const HeaderNavbar = () => {
     return (
-        <Navbar bg="light" className="py-4" expand="lg">
-            <Container className="justify-content-between mx-auto ">
+        <Navbar className="py-4" expand="lg">
+            <Container className="justify-content-between align-items-center mx-auto ">
                 <div className="d-flex justify-content-between align-items-center">
                     <img className="w-25" src={logo} alt="" />
                     <Navbar.Toggle
