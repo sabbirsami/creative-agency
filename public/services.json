@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Web & Mobile design",
+        "img": "https://i.ibb.co/GF3L0DD/service1.png",
+        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+    },
+    {
+        "id": 2,
+        "name": "Graphic design",
+        "img": "https://i.ibb.co/sqJJJWX/service2.png",
+        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+    },
+    {
+        "id": 3,
+        "name": "Web development",
+        "img": "https://i.ibb.co/mRCPjDR/service3.png",
+        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+    },
+    {
+        "id": 4,
+        "name": "Writing",
+        "img": "https://i.ibb.co/y0GTm84/service4.png",
+        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+    },
+    {
+        "id": 5,
+        "name": "Microsoft Office",
+        "img": "https://i.ibb.co/t8CJNg8/service5.png",
+        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+    }
+]
