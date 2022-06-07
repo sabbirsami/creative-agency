@@ -15,7 +15,7 @@ const Services = () => {
             });
     }, []);
     return (
-        <div>
+        <div className="pb-5">
             <div className="container py-5">
                 <div className="pb-4 text-center">
                     <h1>
@@ -23,12 +23,12 @@ const Services = () => {
                         <span className="text-success">services</span>
                     </h1>
                 </div>
-                <p className="text-end">
+                {/* <p className="text-end">
                     <Link to="/" className="text-dark nav-link">
                         Show All{" "}
                         <BsArrowUpRightSquareFill className=""></BsArrowUpRightSquareFill>
                     </Link>
-                </p>
+                </p> */}
                 <div className="row">
                     {services.slice(0, 3).map((service) => (
                         <Service key={service.id} service={service}></Service>

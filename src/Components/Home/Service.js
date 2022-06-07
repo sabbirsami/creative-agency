@@ -1,4 +1,5 @@
 import React from "react";
+import { CgArrowLongRight } from "react-icons/cg";
 
 const Service = ({ service }) => {
     return (
@@ -10,7 +11,8 @@ const Service = ({ service }) => {
                     </div>
                     <div className="py-2">
                         <h4>{service.name}</h4>
-                        <p className="">{service.dic}</p>
+                        <p className="pt-2">{service.dic}</p>
+                        <CgArrowLongRight className="fs-3"></CgArrowLongRight>
                     </div>
                 </div>
             </div>
