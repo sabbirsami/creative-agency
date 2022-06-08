@@ -10,3 +10,6 @@ body {
     width: 50px;
     height: auto;
 }
+.bg-yellow {
+    background-color: #fbd062;
+}
