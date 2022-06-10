@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../images/logos/logo.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import CustomLink from "../Shared/CustomLink";
@@ -25,7 +26,12 @@ const HeaderNavbar = () => {
                         <CustomLink to="/contact">Contact Us</CustomLink>
                     </Nav>
                     <button className="btn shadow-sm border-0 rounded-pill px-4 py-2 alert-success text-dark">
-                        Login
+                        <Link
+                            to="/login"
+                            className="text-decoration-none text-dark"
+                        >
+                            Login
+                        </Link>
                     </button>
                 </Navbar.Collapse>
             </Container>
