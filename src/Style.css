@@ -16,6 +16,9 @@ body {
 .fw-semibold {
     font-weight: 500;
 }
+.fw-semi-bold {
+    font-weight: 500;
+}
 .highlight-green {
     background-image: linear-gradient(180deg, #ffffff 85%, #00b894 30%);
 }

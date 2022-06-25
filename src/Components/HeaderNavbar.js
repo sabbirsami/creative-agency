@@ -17,13 +17,17 @@ const HeaderNavbar = () => {
                 <div className="row align-items-center justify-content-between">
                     <div className="col-lg-3">
                         <div className="d-flex justify-content-between align-items-center">
-                            <img className="w-50 px-3" src={logo} alt="" />
+                            <img
+                                className="w-50 px-lg-3 pe-5"
+                                src={logo}
+                                alt=""
+                            />
                             <button
                                 class="btn btn-white d-block d-lg-none"
                                 type="button"
                                 onClick={handleShow}
                             >
-                                <AiOutlineMenu />
+                                <AiOutlineMenu className="display-5" />
                             </button>
                         </div>
                     </div>
@@ -31,7 +35,7 @@ const HeaderNavbar = () => {
                         <div className="d-none d-lg-block">
                             <Navbar.Collapse
                                 id=""
-                                className="text-center  justify-content-center"
+                                className="text-center justify-content-center"
                             >
                                 <Nav className="me-auto my-lg-0 mx-auto mx-0 text-center">
                                     <CustomLink to="/">Home</CustomLink>
@@ -48,7 +52,7 @@ const HeaderNavbar = () => {
                             </Navbar.Collapse>
                         </div>
                     </div>
-                    <div className="col-lg-3 text-end">
+                    <div className="col-lg-3 text-end d-none d-lg-block">
                         <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
                             <Link
                                 to="/login"
@@ -61,35 +65,39 @@ const HeaderNavbar = () => {
                 </div>
 
                 {/* Toggle  */}
-                <Offcanvas show={show} onHide={handleClose}>
-                    <Offcanvas.Header closeButton>
-                        <Offcanvas.Title>
-                            <img className="w-25" src={logo} alt="" />
-                        </Offcanvas.Title>
-                    </Offcanvas.Header>
-                    <Offcanvas.Body>
-                        <Navbar.Collapse id="">
-                            <Nav className="me-auto my-2 my-lg-0 ms-3">
-                                <CustomLink to="/">Home</CustomLink>
-                                <CustomLink to="/our-portfolio">
-                                    Our Portfolio
-                                </CustomLink>
-                                <CustomLink to="/our-team">Our Team</CustomLink>
-                                <CustomLink to="/contact">
-                                    Contact Us
-                                </CustomLink>
-                            </Nav>
-                            <button className="btn shadow-sm border-0 rounded-pill px-4 py-2 alert-success text-dark">
-                                <Link
-                                    to="/login"
-                                    className="text-decoration-none text-dark"
-                                >
-                                    Login
-                                </Link>
-                            </button>
-                        </Navbar.Collapse>
-                    </Offcanvas.Body>
-                </Offcanvas>
+                <div className="d-lg-none d-block">
+                    <Offcanvas show={show} onHide={handleClose}>
+                        <Offcanvas.Header closeButton>
+                            <Offcanvas.Title>
+                                <img className="w-25" src={logo} alt="" />
+                            </Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                            <Navbar.Collapse id="">
+                                <Nav className="me-auto my-2 my-lg-0 ms-3">
+                                    <CustomLink to="/">Home</CustomLink>
+                                    <CustomLink to="/our-portfolio">
+                                        Our Portfolio
+                                    </CustomLink>
+                                    <CustomLink to="/our-team">
+                                        Our Team
+                                    </CustomLink>
+                                    <CustomLink to="/contact">
+                                        Contact Us
+                                    </CustomLink>
+                                </Nav>
+                                <button className="btn shadow-sm border-0 rounded-pill ms-4 px-4 py-2 alert-success text-dark">
+                                    <Link
+                                        to="/login"
+                                        className="text-decoration-none text-dark"
+                                    >
+                                        Login
+                                    </Link>
+                                </button>
+                            </Navbar.Collapse>
+                        </Offcanvas.Body>
+                    </Offcanvas>
+                </div>
             </div>
         </Navbar>
     );
