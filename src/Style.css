@@ -22,3 +22,17 @@ body {
 .highlight-green {
     background-image: linear-gradient(180deg, #ffffff 85%, #00b894 30%);
 }
+/* .swiper-pagination {
+    margin-bottom: -50px;
+} */
+.swiper-pagination-bullet {
+    background-color: black !important;
+    width: var(
+        --swiper-pagination-bullet-width,
+        var(--swiper-pagination-bullet-size, 10px)
+    ) !important;
+    height: var(
+        --swiper-pagination-bullet-height,
+        var(--swiper-pagination-bullet-size, 10px)
+    ) !important;
+}

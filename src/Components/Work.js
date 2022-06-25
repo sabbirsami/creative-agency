@@ -12,13 +12,15 @@ const Work = () => {
         <div style={{ backgroundColor: "#111430" }}>
             <div className="py-lg-5">
                 <div className="py-5">
-                    <h1 className="text-center text-white pb-5 pt-3">
+                    <h1 className="text-center text-white pb-5 pt-3 display-4">
                         Here are some of{" "}
-                        <span className="text-success">our works</span>
+                        <span className="text-success bg-light px-2 fw-semi-bold">
+                            our works
+                        </span>
                     </h1>
                     <>
                         <Swiper
-                            slidesPerView={4}
+                            slidesPerView={3}
                             spaceBetween={30}
                             centeredSlides={true}
                             pagination={{
