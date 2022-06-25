@@ -8,10 +8,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div
-        // className="d-flex align-items-center justify-content-center"
-        // style={{ height: "75vh" }}
-        >
+        <div>
             <div className="container pt-lg-5">
                 <div className="pt-4 text-center">
                     <h1 className="fw-semibold display-3 pt-lg-5 pb-2">
@@ -19,7 +16,7 @@ const Login = () => {
                     </h1>
                     <p>
                         Don't have and account?{" "}
-                        <Link to={"/sing-up"}>Sign Up</Link>
+                        <Link to={"/sign-up"}>Sign Up</Link>
                     </p>
                 </div>
                 <div className="row align-items-center">
