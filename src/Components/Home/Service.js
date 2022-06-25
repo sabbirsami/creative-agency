@@ -1,5 +1,5 @@
 import React from "react";
-import { CgArrowLongRight } from "react-icons/cg";
+import { BsArrowRightShort } from "react-icons/bs";
 
 const Service = ({ service }) => {
     return (
@@ -12,7 +12,10 @@ const Service = ({ service }) => {
                     <div className="py-2">
                         <h4>{service.name}</h4>
                         <p className="pt-2">{service.dic}</p>
-                        <CgArrowLongRight className="fs-3"></CgArrowLongRight>
+                        <button className="alert-success btn py-0 pe-2 ps-3 border-0 rounded-pill">
+                            <small> Buy </small>
+                            <BsArrowRightShort className=""></BsArrowRightShort>
+                        </button>
                     </div>
                 </div>
             </div>

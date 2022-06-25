@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
 import logo from "../images/logos/logo.png";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import CustomLink from "../Shared/CustomLink";
 import { AiOutlineMenu } from "react-icons/ai";
 

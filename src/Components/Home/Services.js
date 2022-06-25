@@ -25,7 +25,7 @@ const Services = () => {
                                 <span className="text-success">services</span>
                             </h1>
                             <p className="pt-4 d-lg-block d-none">
-                                <MdDoubleArrow className="fs-1" />
+                                <MdDoubleArrow className="fs-1 bg-gradient text-dark" />
                             </p>
                         </div>
                     </div>
