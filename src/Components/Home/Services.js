@@ -20,7 +20,7 @@ const Services = () => {
                 <div className="row">
                     <div className="col-lg-3">
                         <div>
-                            <h1 className="fs-0-5 pt-3">
+                            <h1 className="display-4 pt-3">
                                 Provide awesome{" "}
                                 <span className="text-success">services</span>
                             </h1>

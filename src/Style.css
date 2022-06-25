@@ -16,3 +16,6 @@ body {
 .fs-0-5 {
     font-size: 52px !important;
 }
+.highlight-green {
+    background-image: linear-gradient(180deg, #ffffff 85%, #00b894 30%);
+}

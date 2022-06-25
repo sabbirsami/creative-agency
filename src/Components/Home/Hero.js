@@ -7,7 +7,7 @@ const Hero = () => {
             <div className="container d-lg-block d-flex flex-nowrap">
                 <div className="py-lg-5">
                     <div className="hero-content order-2">
-                        <h1 className="fw-light text-center">
+                        <h1 className="fw-light text-center display-3">
                             Let’s Grow Your Brand To <br /> The Next Level
                         </h1>
                         <p className="col-lg-6 mx-auto text-center py-lg-2">
