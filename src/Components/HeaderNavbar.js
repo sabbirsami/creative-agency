@@ -12,7 +12,7 @@ const HeaderNavbar = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <Navbar className="py-4 d-lg-block">
+        <Navbar className="py-4 d-lg-block sticky-lg-top bg-white">
             <div className="container d-block">
                 <div className="row align-items-center justify-content-between">
                     <div className="col-lg-3">
