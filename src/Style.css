@@ -13,8 +13,8 @@ body {
 .bg-yellow {
     background-color: #fbd062;
 }
-.fs-0-5 {
-    font-size: 52px !important;
+.fw-semibold {
+    font-weight: 500;
 }
 .highlight-green {
     background-image: linear-gradient(180deg, #ffffff 85%, #00b894 30%);

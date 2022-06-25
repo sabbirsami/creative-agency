@@ -14,7 +14,9 @@ const Login = () => {
         >
             <div className="container pt-lg-5">
                 <div className="pt-4 text-center">
-                    <h1 className="fw-bold fs-0-5 pt-lg-5 pb-2">Log In</h1>
+                    <h1 className="fw-semibold display-3 pt-lg-5 pb-2">
+                        Log In
+                    </h1>
                     <p>
                         Don't have and account?{" "}
                         <Link to={"/sing-up"}>Sign Up</Link>
