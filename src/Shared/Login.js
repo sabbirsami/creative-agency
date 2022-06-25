@@ -12,7 +12,7 @@ const Login = () => {
         // className="d-flex align-items-center justify-content-center"
         // style={{ height: "75vh" }}
         >
-            <div className="container">
+            <div className="container pt-lg-5">
                 <div className="pt-4 text-center">
                     <h1 className="fw-bold fs-0-5 pt-lg-5 pb-2">Log In</h1>
                     <p>
@@ -22,7 +22,7 @@ const Login = () => {
                 </div>
                 <div className="row align-items-center">
                     <div className="col-lg-6 px-lg-5">
-                        <div className="p-5">
+                        <div className="p-lg-5">
                             <Form>
                                 <FloatingLabel
                                     controlId="floatingInput"
@@ -77,7 +77,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="col-lg-6 px-lg-5 border-start">
-                        <div className="p-5">
+                        <div className="p-lg-5">
                             <button className="p-0 btn btn-primary mb-3 rounded-0">
                                 <div className="d-flex align-items-center pe-4">
                                     <div className="bg-white p-1">
