@@ -48,16 +48,21 @@ const Login = () => {
                                 </FloatingLabel>
                                 <div className="d-flex justify-content-between">
                                     <Form.Group className="mb-3">
-                                        <Form.Check
-                                            label="Remember Me"
-                                            feedback="You must agree before submitting."
-                                            feedbackType="invalid"
-                                        />
+                                        <small>
+                                            <Form.Check
+                                                className="pt-1"
+                                                label="Remember Me"
+                                                feedback="You must agree before submitting."
+                                                feedbackType="invalid"
+                                            />
+                                        </small>
                                     </Form.Group>
-                                    <p>
-                                        <Link to="/">
-                                            Forgot Password or Email
-                                        </Link>
+                                    <p className="">
+                                        <small>
+                                            <Link to="/">
+                                                Forgot Password or Email
+                                            </Link>
+                                        </small>
                                     </p>
                                 </div>
                                 <div className="py-3">
