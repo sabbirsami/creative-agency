@@ -1,7 +1,6 @@
 import React from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { FcGoogle } from "react-icons/fc";
-import { AiOutlineGithub } from "react-icons/ai";
 import { GrFacebookOption } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
