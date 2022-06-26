@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Login from "./Shared/Login";
 import SignUp from "./Shared/SignUp";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/sign-up" element={<SignUp />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
             </Routes>
         </div>
     );
