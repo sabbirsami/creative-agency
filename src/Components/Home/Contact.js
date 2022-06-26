@@ -48,6 +48,7 @@ const Contact = () => {
                                     controlId="exampleForm.ControlInput1"
                                 >
                                     <Form.Control
+                                        name="email"
                                         type="email"
                                         className="rounded-1 border-0 py-3"
                                         placeholder="Your email address"
@@ -58,6 +59,7 @@ const Contact = () => {
                                     controlId="exampleForm.ControlInput1"
                                 >
                                     <Form.Control
+                                        name="email"
                                         type="text"
                                         className="rounded-1 border-0 py-3"
                                         placeholder="Your name / company’s name"
@@ -68,6 +70,7 @@ const Contact = () => {
                                     controlId="exampleForm.ControlTextarea1"
                                 >
                                     <Form.Control
+                                        name="message"
                                         as="textarea"
                                         rows={6}
                                         className="rounded-1 border-0 py-3"
