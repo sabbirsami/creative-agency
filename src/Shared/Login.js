@@ -7,11 +7,16 @@ import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import auth from "../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+    useSignInWithFacebook,
+    useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 
 const Login = () => {
     const navigate = useNavigate();
-    const [signInWithGoogle, user, loading, googleError] =
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
+        useSignInWithFacebook(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
     const {
         register,
@@ -24,19 +29,19 @@ const Login = () => {
         console.log(data);
         reset();
     };
+    if (googleLoading || facebookLoading) {
+        return <p>Loading...</p>;
+    }
 
     let loginError;
-    if (googleError) {
+    if (googleError || facebookError) {
         loginError = (
             <p className="text-danger">
-                <small>{googleError?.message}</small>
+                <small>{googleError?.message || facebookError?.message}</small>
             </p>
         );
     }
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-    if (user) {
+    if (googleUser || facebookUser) {
         navigate("/");
     }
     return (
@@ -144,7 +149,7 @@ const Login = () => {
                                         </small>
                                     </p>
                                 </div>
-                                {googleError}
+                                {loginError}
                                 <div className="py-3">
                                     <button
                                         className="rounded-pill px-5 py-2 btn btn-outline-primary"
@@ -171,7 +176,10 @@ const Login = () => {
                                     </p>
                                 </div>
                             </button>
-                            <button className="p-0 btn btn-light mb-3 border border-dark rounded-0">
+                            <button
+                                onClick={() => signInWithFacebook()}
+                                className="p-0 btn btn-light mb-3 border border-dark rounded-0"
+                            >
                                 <div className="d-flex align-items-center">
                                     <div className="bg-primary p-1">
                                         <GrFacebookOption className="fs-1 text-white" />
