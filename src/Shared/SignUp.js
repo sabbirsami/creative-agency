@@ -7,40 +7,41 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../firebase.init";
 import { useForm } from "react-hook-form";
 import {
+    useCreateUserWithEmailAndPassword,
     useSignInWithFacebook,
     useSignInWithGoogle,
+    useUpdateProfile,
 } from "react-firebase-hooks/auth";
 
 const SignUp = () => {
     const navigate = useNavigate();
+    const [createUserWithEmailAndPassword, user, loading, error] =
+        useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
         useSignInWithFacebook(auth);
-    const {
-        register,
-        formState: { errors },
-        reset,
-        handleSubmit,
-    } = useForm();
+    const { register, reset, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
         reset();
     };
-    if (googleLoading || facebookLoading) {
+    if (loading || updating || googleLoading || facebookLoading) {
         return <p>Loading...</p>;
     }
 
     let loginError;
-    if (googleError || facebookError) {
+    if (error || updateError || googleError || facebookError) {
         loginError = (
             <p className="text-danger">
                 <small>{googleError?.message || facebookError?.message}</small>
             </p>
         );
     }
-    if (googleUser || facebookUser) {
+    if (googleUser || facebookUser || user) {
         navigate("/");
     }
     return (
