@@ -10,7 +10,7 @@ import carousel_5 from "../images/carousel-5.png";
 const Work = () => {
     return (
         <div style={{ backgroundColor: "#111430" }}>
-            <div className="py-lg-5">
+            <div className="pt-lg-5">
                 <div className="py-5">
                     <h1 className="text-center text-white pb-5 pt-3 display-4">
                         Here are some of{" "}
