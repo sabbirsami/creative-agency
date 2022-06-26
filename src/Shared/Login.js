@@ -5,8 +5,20 @@ import { AiOutlineGithub } from "react-icons/ai";
 import { GrFacebookOption } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+    const {
+        register,
+        formState: { errors },
+        reset,
+        handleSubmit,
+    } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data);
+        reset();
+    };
     return (
         <div>
             <div className="container pt-lg-5">
@@ -22,17 +34,41 @@ const Login = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 px-lg-5">
                         <div className="p-lg-5">
-                            <Form>
+                            <Form onSubmit={handleSubmit(onSubmit)}>
                                 <FloatingLabel
                                     controlId="floatingInput"
                                     label="Email address"
                                     className="mb-3"
                                 >
                                     <Form.Control
+                                        {...register("email", {
+                                            required: {
+                                                value: true,
+                                                message: "Email is Required",
+                                            },
+                                            pattern: {
+                                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                                message:
+                                                    "Provide a valid Email",
+                                            },
+                                        })}
                                         className="border-bottom border-0 rounded-0"
                                         type="email"
                                         placeholder="name@example.com"
                                     />
+                                    <p className="text-danger">
+                                        {errors.email?.type === "required" && (
+                                            <small className="text-danger">
+                                                {errors.email.message}
+                                            </small>
+                                        )}
+
+                                        {errors.email?.type === "pattern" && (
+                                            <small className="text-danger">
+                                                {errors.email.message}
+                                            </small>
+                                        )}
+                                    </p>
                                 </FloatingLabel>
                                 <FloatingLabel
                                     controlId="floatingPassword"
@@ -40,10 +76,34 @@ const Login = () => {
                                     className="mb-3"
                                 >
                                     <Form.Control
+                                        {...register("password", {
+                                            required: {
+                                                value: true,
+                                                message: "Password is Required",
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message:
+                                                    "Must be 6 characters or longer",
+                                            },
+                                        })}
                                         className="border-bottom border-0 rounded-0"
                                         type="password"
                                         placeholder="Password"
                                     />
+                                    <p className="text-danger">
+                                        {errors.email?.type === "required" && (
+                                            <small className="text-danger">
+                                                {errors.password.message}
+                                            </small>
+                                        )}
+
+                                        {errors.email?.type === "minLength" && (
+                                            <small className="text-danger">
+                                                {errors.password.message}
+                                            </small>
+                                        )}
+                                    </p>
                                 </FloatingLabel>
                                 <div className="d-flex justify-content-between">
                                     <Form.Group className="mb-3">
