@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs
+            .sendForm(
+                "YOUR_SERVICE_ID",
+                "YOUR_TEMPLATE_ID",
+                form.current,
+                "YOUR_PUBLIC_KEY"
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
+    };
     return (
         <div className="bg-yellow">
             <div className="container py-5">
