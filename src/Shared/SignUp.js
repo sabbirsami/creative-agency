@@ -3,9 +3,46 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { FcGoogle } from "react-icons/fc";
 import { GrFacebookOption } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../firebase.init";
+import { useForm } from "react-hook-form";
+import {
+    useSignInWithFacebook,
+    useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 
 const SignUp = () => {
+    const navigate = useNavigate();
+    const [signInWithGoogle, googleUser, googleLoading, googleError] =
+        useSignInWithGoogle(auth);
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
+        useSignInWithFacebook(auth);
+    const {
+        register,
+        formState: { errors },
+        reset,
+        handleSubmit,
+    } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data);
+        reset();
+    };
+    if (googleLoading || facebookLoading) {
+        return <p>Loading...</p>;
+    }
+
+    let loginError;
+    if (googleError || facebookError) {
+        loginError = (
+            <p className="text-danger">
+                <small>{googleError?.message || facebookError?.message}</small>
+            </p>
+        );
+    }
+    if (googleUser || facebookUser) {
+        navigate("/");
+    }
     return (
         <div>
             <div className="container pt-lg-5">
@@ -21,13 +58,14 @@ const SignUp = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 px-lg-5">
                         <div className="p-lg-5">
-                            <Form>
+                            <Form onSubmit={handleSubmit(onSubmit)}>
                                 <FloatingLabel
                                     controlId="floatingInput"
                                     label="Your Name"
                                     className="mb-3"
                                 >
                                     <Form.Control
+                                        {...register("name")}
                                         className="border-bottom border-0 rounded-0"
                                         type="text"
                                         placeholder="name.."
@@ -39,6 +77,7 @@ const SignUp = () => {
                                     className="mb-3"
                                 >
                                     <Form.Control
+                                        {...register("email")}
                                         className="border-bottom border-0 rounded-0"
                                         type="email"
                                         placeholder="name@example.com"
@@ -50,6 +89,7 @@ const SignUp = () => {
                                     className="mb-3"
                                 >
                                     <Form.Control
+                                        {...register("password")}
                                         className="border-bottom border-0 rounded-0"
                                         type="password"
                                         placeholder="Password"
@@ -67,6 +107,7 @@ const SignUp = () => {
                                         </small>
                                     </Form.Group>
                                 </div>
+                                {loginError}
                                 <div className="py-3">
                                     <button
                                         className="rounded-pill px-5 py-2 btn btn-outline-primary"
@@ -80,7 +121,10 @@ const SignUp = () => {
                     </div>
                     <div className="col-lg-6 px-lg-5 border-start">
                         <div className="p-lg-5">
-                            <button className="p-0 btn btn-primary mb-3 rounded-0">
+                            <button
+                                onClick={() => signInWithGoogle()}
+                                className="p-0 btn btn-primary mb-3 rounded-0"
+                            >
                                 <div className="d-flex align-items-center pe-4">
                                     <div className="bg-white p-1">
                                         <FcGoogle className="fs-1" />
@@ -90,7 +134,10 @@ const SignUp = () => {
                                     </p>
                                 </div>
                             </button>
-                            <button className="p-0 btn btn-light mb-3 border border-dark rounded-0">
+                            <button
+                                onClick={() => signInWithFacebook()}
+                                className="p-0 btn btn-light mb-3 border border-dark rounded-0"
+                            >
                                 <div className="d-flex align-items-center">
                                     <div className="bg-primary p-1">
                                         <GrFacebookOption className="fs-1 text-white" />
