@@ -9,15 +9,18 @@ import { useForm } from "react-hook-form";
 import auth from "../firebase.init";
 import {
     useSignInWithFacebook,
+    useSignInWithGithub,
     useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 
 const Login = () => {
     const navigate = useNavigate();
-    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
-        useSignInWithFacebook(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] =
         useSignInWithGoogle(auth);
+    const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
+        useSignInWithFacebook(auth);
+    const [signInWithGithub, githubUser, githubLoading, githubError] =
+        useSignInWithGithub(auth);
     const {
         register,
         formState: { errors },
@@ -29,19 +32,23 @@ const Login = () => {
         console.log(data);
         reset();
     };
-    if (googleLoading || facebookLoading) {
+    if (googleLoading || facebookLoading || githubLoading) {
         return <p>Loading...</p>;
     }
 
     let loginError;
-    if (googleError || facebookError) {
+    if (googleError || facebookError || githubError) {
         loginError = (
             <p className="text-danger">
-                <small>{googleError?.message || facebookError?.message}</small>
+                <small>
+                    {googleError?.message ||
+                        facebookError?.message ||
+                        githubError?.message}
+                </small>
             </p>
         );
     }
-    if (googleUser || facebookUser) {
+    if (googleUser || facebookUser || githubUser) {
         navigate("/");
     }
     return (
@@ -189,7 +196,10 @@ const Login = () => {
                                     </p>
                                 </div>
                             </button>
-                            <button className="p-0 btn btn-outline-dark mb-3 rounded-0">
+                            <button
+                                onClick={() => signInWithGithub()}
+                                className="p-0 btn btn-outline-dark mb-3 rounded-0"
+                            >
                                 <div className="d-flex align-items-center pe-4">
                                     <div className="bg-white p-1 border-end border-dark">
                                         <AiOutlineGithub className="fs-1 " />
