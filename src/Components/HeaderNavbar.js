@@ -5,12 +5,23 @@ import logo from "../images/logos/logo.png";
 import { Nav, Navbar } from "react-bootstrap";
 import CustomLink from "../Shared/CustomLink";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
+import { signOut } from "firebase/auth";
 
 const HeaderNavbar = () => {
     const [show, setShow] = useState(false);
-
+    const [user, loading, error] = useAuthState(auth);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+    };
     return (
         <Navbar className="py-4 d-lg-block sticky-lg-top bg-white">
             <div className="container d-block">
@@ -48,19 +59,38 @@ const HeaderNavbar = () => {
                                     <CustomLink to="/contact">
                                         Contact Us
                                     </CustomLink>
+                                    <CustomLink to="/dashboard">
+                                        Dashboard
+                                    </CustomLink>
                                 </Nav>
                             </Navbar.Collapse>
                         </div>
                     </div>
                     <div className="col-lg-3 text-end d-none d-lg-block">
-                        <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
-                            <Link
-                                to="/login"
-                                className="text-decoration-none text-dark"
+                        {user ? (
+                            <button
+                                onClick={logout}
+                                className="btn shadow-sm border-0
+                            rounded-0 px-4 py-2 alert-success
+                            text-dark"
                             >
-                                Login
-                            </Link>
-                        </button>
+                                <Link
+                                    to="/login"
+                                    className="text-decoration-none text-dark"
+                                >
+                                    Log Out
+                                </Link>
+                            </button>
+                        ) : (
+                            <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
+                                <Link
+                                    to="/login"
+                                    className="text-decoration-none text-dark"
+                                >
+                                    Log In
+                                </Link>
+                            </button>
+                        )}
                     </div>
                 </div>
 
@@ -85,15 +115,34 @@ const HeaderNavbar = () => {
                                     <CustomLink to="/contact">
                                         Contact Us
                                     </CustomLink>
+                                    <CustomLink to="/dashboard">
+                                        Dashboard
+                                    </CustomLink>
                                 </Nav>
-                                <button className="btn shadow-sm border-0 rounded-pill ms-4 px-4 py-2 alert-success text-dark">
-                                    <Link
-                                        to="/login"
-                                        className="text-decoration-none text-dark"
+                                {user ? (
+                                    <button
+                                        onClick={logout}
+                                        className="btn shadow-sm border-0
+                                        rounded-0 px-4 py-2 alert-success
+                                        text-dark"
                                     >
-                                        Login
-                                    </Link>
-                                </button>
+                                        <Link
+                                            to="/login"
+                                            className="text-decoration-none text-dark"
+                                        >
+                                            Log Out
+                                        </Link>
+                                    </button>
+                                ) : (
+                                    <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
+                                        <Link
+                                            to="/login"
+                                            className="text-decoration-none text-dark"
+                                        >
+                                            Log In
+                                        </Link>
+                                    </button>
+                                )}
                             </Navbar.Collapse>
                         </Offcanvas.Body>
                     </Offcanvas>

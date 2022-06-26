@@ -22,7 +22,12 @@ const SignUp = () => {
         useSignInWithGoogle(auth);
     const [signInWithFacebook, facebookUser, facebookLoading, facebookError] =
         useSignInWithFacebook(auth);
-    const { register, reset, handleSubmit } = useForm();
+    const {
+        register,
+        reset,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
 
     const onSubmit = async (data) => {
         await createUserWithEmailAndPassword(data.email, data.password);
@@ -90,12 +95,36 @@ const SignUp = () => {
                                     className="mb-3"
                                 >
                                     <Form.Control
-                                        {...register("password")}
+                                        {...register("password", {
+                                            required: {
+                                                value: true,
+                                                message: "Password is Required",
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message:
+                                                    "Must be 6 characters or longer",
+                                            },
+                                        })}
                                         className="border-bottom border-0 rounded-0"
                                         type="password"
                                         placeholder="Password"
                                     />
+                                    <p className="text-danger">
+                                        {errors.email?.type === "required" && (
+                                            <small className="text-danger">
+                                                {errors.password.message}
+                                            </small>
+                                        )}
+
+                                        {errors.email?.type === "minLength" && (
+                                            <small className="text-danger">
+                                                {errors.password.message}
+                                            </small>
+                                        )}
+                                    </p>
                                 </FloatingLabel>
+
                                 <div className="d-flex justify-content-between">
                                     <Form.Group className="mb-3">
                                         <small>
