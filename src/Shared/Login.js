@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
+    // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const {
         register,
         formState: { errors },
