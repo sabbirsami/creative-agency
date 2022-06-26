@@ -22,6 +22,11 @@ body {
 .highlight-green {
     background-image: linear-gradient(180deg, #ffffff 85%, #00b894 30%);
 }
+
+.swiper-wrapper {
+    transition-duration: 0ms;
+    /* transform: translate3d(374.33299999999997px, 0px, 0px) !important; */
+}
 .swiper-pointer-events {
     touch-action: pan-y;
     margin-top: 50px !important;

@@ -4,11 +4,15 @@ import { FcGoogle } from "react-icons/fc";
 import { AiOutlineGithub } from "react-icons/ai";
 import { GrFacebookOption } from "react-icons/gr";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import auth from "../firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 const Login = () => {
-    // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const navigate = useNavigate();
+    const [signInWithGoogle, user, loading, googleError] =
+        useSignInWithGoogle(auth);
     const {
         register,
         formState: { errors },
@@ -20,6 +24,21 @@ const Login = () => {
         console.log(data);
         reset();
     };
+
+    let loginError;
+    if (googleError) {
+        loginError = (
+            <p className="text-danger">
+                <small>{googleError?.message}</small>
+            </p>
+        );
+    }
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    if (user) {
+        navigate("/");
+    }
     return (
         <div>
             <div className="container pt-lg-5">
@@ -125,6 +144,7 @@ const Login = () => {
                                         </small>
                                     </p>
                                 </div>
+                                {googleError}
                                 <div className="py-3">
                                     <button
                                         className="rounded-pill px-5 py-2 btn btn-outline-primary"
@@ -138,7 +158,10 @@ const Login = () => {
                     </div>
                     <div className="col-lg-6 px-lg-5 border-start">
                         <div className="p-lg-5">
-                            <button className="p-0 btn btn-primary mb-3 rounded-0">
+                            <button
+                                onClick={() => signInWithGoogle()}
+                                className="p-0 btn btn-primary mb-3 rounded-0"
+                            >
                                 <div className="d-flex align-items-center pe-4">
                                     <div className="bg-white p-1">
                                         <FcGoogle className="fs-1" />
