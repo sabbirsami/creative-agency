@@ -7,6 +7,7 @@ import Home from "./Components/Home/Home";
 import Login from "./Shared/Login";
 import SignUp from "./Shared/SignUp";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import ContactSection from "./Components/ContactSection/ContactSection";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/sign-up" element={<SignUp />}></Route>
                 <Route path="/dashboard" element={<Dashboard />}></Route>
+                <Route path="/contact" element={<ContactSection />}></Route>
             </Routes>
         </div>
     );

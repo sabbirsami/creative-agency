@@ -13,6 +13,11 @@ body {
 .bg-yellow {
     background-color: #fbd062;
 }
+.highlight {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #00b894;
+}
 .fw-semibold {
     font-weight: 500;
 }
