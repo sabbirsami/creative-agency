@@ -32,7 +32,7 @@ const ContactSection = () => {
         <div style={{ height: "90vh" }}>
             <div
                 className="d-flex py-5 align-items-center bg-yellow"
-                style={{ height: "90vh" }}
+                style={{ height: "91vh" }}
             >
                 <div className="container d-flex justify-content-center py-5">
                     <div className="row ">
