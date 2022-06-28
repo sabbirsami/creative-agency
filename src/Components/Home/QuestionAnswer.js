@@ -57,7 +57,7 @@ const QuestionAnswer = () => {
                             </Accordion.Item>
                             <Accordion.Item
                                 className="border-0 py-1"
-                                eventKey="1"
+                                eventKey="5"
                             >
                                 <Accordion.Header className="border">
                                     <p className="pt-2">
