@@ -1,4 +1,5 @@
 import React from "react";
+import HeaderNavbar from "../HeaderNavbar";
 import Work from "../Work";
 import Contact from "./Contact";
 import Feedback from "./Feedback";
@@ -10,6 +11,7 @@ import Services from "./Services";
 const Home = () => {
     return (
         <div>
+            <HeaderNavbar></HeaderNavbar>
             <Hero></Hero>
             <Partnership></Partnership>
             <Services></Services>

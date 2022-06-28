@@ -12,7 +12,6 @@ import ContactSection from "./Components/ContactSection/ContactSection";
 function App() {
     return (
         <div className="App">
-            <HeaderNavbar></HeaderNavbar>
             <Routes>
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
