@@ -9,6 +9,7 @@ import PageNotFount from "./Shared/PageNotFount";
 import SignUp from "./Shared/SignUp";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ContactSection from "./Components/ContactSection/ContactSection";
+import Profile from "./Components/Dashboard/Profile";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/sign-up" element={<SignUp />}></Route>
                 <Route path="/dashboard" element={<Dashboard />}>
                     <Route path="service" element={<ContactSection />}></Route>
+                    <Route index element={<Profile />}></Route>
                     <Route
                         path="add-admin"
                         element={<ContactSection />}

@@ -1,5 +1,5 @@
-import { signOut } from "firebase/auth";
 import React from "react";
+import { signOut } from "firebase/auth";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { FiHardDrive } from "react-icons/fi";
 import { MdReviews } from "react-icons/md";
@@ -11,11 +11,17 @@ import auth from "../../firebase.init";
 import logo from "../../images/logos/logo.png";
 import DashboardLink from "../../Shared/DashboardLink";
 import { Link, Outlet } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Dashboard = () => {
+    const [user, loading, error] = useAuthState(auth);
+
     const logout = () => {
         signOut(auth);
     };
+    if (loading) {
+        return <p>Loading....</p>;
+    }
     return (
         <div>
             {/* DASHBOARD HEADER START */}
@@ -48,9 +54,11 @@ const Dashboard = () => {
                                         </Link>
                                     </button> */}
                                     <div>
-                                        <h5 className="fw-bold m-0">Sami</h5>
+                                        <h6 className="fw-semi-bold m-0 text-success">
+                                            {user?.displayName}
+                                        </h6>
                                         <p className="m-0">
-                                            <small>a@gmail.com</small>
+                                            <small>{user?.email}</small>
                                         </p>
                                     </div>
                                 </div>
