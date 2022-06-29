@@ -10,6 +10,7 @@ import SignUp from "./Shared/SignUp";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import ContactSection from "./Components/ContactSection/ContactSection";
 import Profile from "./Components/Dashboard/Profile";
+import UpdateProfile from "./Components/Dashboard/UpdateProfile";
 
 function App() {
     return (
@@ -24,6 +25,10 @@ function App() {
                     <Route
                         path="add-admin"
                         element={<ContactSection />}
+                    ></Route>
+                    <Route
+                        path="update-profile"
+                        element={<UpdateProfile />}
                     ></Route>
                     <Route
                         path="manage-order"
