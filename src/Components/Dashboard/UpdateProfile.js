@@ -6,8 +6,8 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { Form } from "react-bootstrap";
 
 const UpdateProfile = () => {
-    const [user, loading, error] = useAuthState(auth);
-    // console.log(user);
+    const [user, loading] = useAuthState(auth);
+
     if (loading) {
         return <p>Loading....</p>;
     }
