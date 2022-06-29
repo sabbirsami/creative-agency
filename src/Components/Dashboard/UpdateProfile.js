@@ -29,7 +29,7 @@ const UpdateProfile = () => {
                         <div className="px-2 py-4">
                             <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
                                 <Link
-                                    to=""
+                                    to="/dashboard"
                                     className="text-decoration-none text-dark"
                                 >
                                     Update Profile
