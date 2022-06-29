@@ -16,9 +16,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Dashboard = () => {
     const [user, loading, error] = useAuthState(auth);
 
-    const logout = () => {
-        signOut(auth);
-    };
     if (loading) {
         return <p>Loading....</p>;
     }
