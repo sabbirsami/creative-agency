@@ -17,7 +17,30 @@ function App() {
                 <Route path="/" element={<Home></Home>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/sign-up" element={<SignUp />}></Route>
-                <Route path="/dashboard" element={<Dashboard />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}>
+                    <Route path="service" element={<ContactSection />}></Route>
+                    <Route
+                        path="add-admin"
+                        element={<ContactSection />}
+                    ></Route>
+                    <Route
+                        path="manage-order"
+                        element={<ContactSection />}
+                    ></Route>
+                    <Route path="my-order" element={<ContactSection />}></Route>
+                    <Route
+                        path="manage-review"
+                        element={<ContactSection />}
+                    ></Route>
+                    <Route
+                        path="add-review"
+                        element={<ContactSection />}
+                    ></Route>
+                    <Route
+                        path="manage-user"
+                        element={<ContactSection />}
+                    ></Route>
+                </Route>
                 <Route path="/contact" element={<ContactSection />}></Route>
                 <Route path="*" element={<PageNotFount />}></Route>
             </Routes>

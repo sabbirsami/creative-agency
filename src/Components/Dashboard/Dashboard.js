@@ -1,9 +1,16 @@
 import { signOut } from "firebase/auth";
 import React from "react";
-import { Link } from "react-router-dom";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { FiHardDrive } from "react-icons/fi";
+import { MdReviews } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { HiOutlineUserAdd } from "react-icons/hi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Nav, Navbar } from "react-bootstrap";
 import auth from "../../firebase.init";
 import logo from "../../images/logos/logo.png";
+import DashboardLink from "../../Shared/DashboardLink";
+import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     const logout = () => {
@@ -53,13 +60,42 @@ const Dashboard = () => {
                 style={{ height: "93vh" }}
             >
                 <div className="row">
-                    <div className="col-lg-2 ">
+                    <div className="col-lg-2 p-0">
                         <Navbar bg="light" expand="lg">
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                <Nav className="me-auto d-block">
-                                    <Nav.Link href="#home">Home</Nav.Link>
-                                    <Nav.Link href="#link">Link</Nav.Link>
+                            <Navbar.Collapse id="basic-navbar-nav d-block">
+                                <Nav className=" m-0 d-block w-100">
+                                    <DashboardLink to="/dashboard">
+                                        <TbLayoutDashboard className="me-2" />{" "}
+                                        Dashboard
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/service">
+                                        <FiHardDrive className="me-2" /> Service
+                                        list
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/manage-order">
+                                        <AiOutlineShoppingCart className="me-2" />{" "}
+                                        Manage Order
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/my-order">
+                                        <AiOutlineShoppingCart className="me-2" />{" "}
+                                        My Order
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/manage-review">
+                                        <MdReviews className="me-2" /> Manage
+                                        Review
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/manage-user">
+                                        <FaUsers className="me-2" /> Manage User
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/add-review">
+                                        <MdReviews className="me-2" /> Add
+                                        Review
+                                    </DashboardLink>
+                                    <DashboardLink to="/dashboard/add-admin">
+                                        <HiOutlineUserAdd className="me-2" />{" "}
+                                        Add Admin
+                                    </DashboardLink>
                                 </Nav>
                             </Navbar.Collapse>
                         </Navbar>
@@ -68,7 +104,7 @@ const Dashboard = () => {
                         className="col-lg-10 border-start"
                         style={{ height: "93vh" }}
                     >
-                        <h1>Dashboard</h1>
+                        <Outlet></Outlet>
                     </div>
                 </div>
             </div>
