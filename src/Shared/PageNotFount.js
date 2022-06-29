@@ -4,12 +4,12 @@ import HeaderNavbar from "../Components/HeaderNavbar";
 
 const PageNotFount = () => {
     return (
-        <>
+        <div className="container-fluid">
             <HeaderNavbar />
             <div className="d-flex justify-content-center">
-                <img src={notFound} alt="" />
+                <img className="w-100" src={notFound} alt="" />
             </div>
-        </>
+        </div>
     );
 };
 

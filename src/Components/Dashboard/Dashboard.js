@@ -10,7 +10,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import auth from "../../firebase.init";
 import logo from "../../images/logos/logo.png";
 import DashboardLink from "../../Shared/DashboardLink";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
     const logout = () => {
@@ -25,7 +25,13 @@ const Dashboard = () => {
                         <div className="px-4 py-1">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="col-lg-2">
-                                    <img className="w-25" src={logo} alt="" />
+                                    <Link to="/">
+                                        <img
+                                            className="w-25"
+                                            src={logo}
+                                            alt=""
+                                        />
+                                    </Link>
                                 </div>
                                 <div className="col-lg-2 d-flex justify-content-end align-items-center">
                                     {/* <button
