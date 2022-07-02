@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import auth from "../firebase.init";
 import {
+    useSignInWithEmailAndPassword,
     useSignInWithFacebook,
     useSignInWithGithub,
     useSignInWithGoogle,
@@ -21,6 +22,8 @@ const Login = () => {
         useSignInWithFacebook(auth);
     const [signInWithGithub, githubUser, githubLoading, githubError] =
         useSignInWithGithub(auth);
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
     const {
         register,
         formState: { errors },
@@ -28,29 +31,31 @@ const Login = () => {
         handleSubmit,
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-        reset();
-    };
-    if (googleLoading || facebookLoading || githubLoading) {
+    if (loading || googleLoading || facebookLoading || githubLoading) {
         return <p>Loading...</p>;
     }
 
     let loginError;
-    if (googleError || facebookError || githubError) {
+    if (error || googleError || facebookError || githubError) {
         loginError = (
             <p className="text-danger">
                 <small>
-                    {googleError?.message ||
+                    {error?.message ||
+                        googleError?.message ||
                         facebookError?.message ||
                         githubError?.message}
                 </small>
             </p>
         );
     }
-    if (googleUser || facebookUser || githubUser) {
+    if (user || googleUser || facebookUser || githubUser) {
         navigate("/");
     }
+    const onSubmit = (data) => {
+        signInWithEmailAndPassword(data);
+        console.log(data);
+        reset();
+    };
     return (
         <div>
             <div className="container pt-lg-5">
