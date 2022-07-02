@@ -76,6 +76,24 @@ const UpdateProfile = () => {
                                 </p>
                             </div>
                             <div>
+                                <p className="m-0">Linkedin Account:</p>
+                                <p className="text-muted col-lg-6">
+                                    <Form.Control
+                                        type="text"
+                                        className="rounded-0"
+                                    />
+                                </p>
+                            </div>
+                            <div>
+                                <p className="m-0">Github Address:</p>
+                                <p className="text-muted col-lg-6">
+                                    <Form.Control
+                                        type="text"
+                                        className="rounded-0"
+                                    />
+                                </p>
+                            </div>
+                            <div>
                                 <p className="m-0">About:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control

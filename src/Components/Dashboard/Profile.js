@@ -65,6 +65,32 @@ const Profile = () => {
                                 <p className="text-muted">Dhaka, Bangladesh</p>
                             </div>
                             <div>
+                                <p className="m-0">Linkedin Account:</p>
+                                <p>
+                                    <a
+                                        target={"_blank"}
+                                        rel="noreferrer"
+                                        href="https://www.linkedin.com/in/sabbir-mohammad-sami/"
+                                        className="text-muted"
+                                    >
+                                        https://www.linkedin.com/in/sabbir-mohammad-sami/
+                                    </a>
+                                </p>
+                            </div>
+                            <div>
+                                <p className="m-0">Github Address:</p>
+                                <p>
+                                    <a
+                                        target={"_blank"}
+                                        rel="noreferrer"
+                                        href="https://github.com/sabbirsami"
+                                        className="text-muted"
+                                    >
+                                        https://github.com/sabbirsami
+                                    </a>
+                                </p>
+                            </div>
+                            <div>
                                 <p className="m-0">About:</p>
                                 <p className="text-muted">
                                     Lorem ipsum dolor sit, amet consectetur
