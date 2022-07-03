@@ -1,5 +1,6 @@
 import React from "react";
 import HeaderNavbar from "../HeaderNavbar";
+import Loading from "../Loading";
 import Work from "../Work";
 import Contact from "./Contact";
 import Feedback from "./Feedback";
