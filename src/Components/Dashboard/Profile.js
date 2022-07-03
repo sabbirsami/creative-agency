@@ -34,12 +34,12 @@ const Profile = () => {
                             )}
                         </div>
                         <div className="px-2 py-4">
-                            <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
+                            <button className="btn shadow-sm border-0 rounded-0 px-5 py-2 alert-success text-dark">
                                 <Link
                                     to="/dashboard/update-profile"
-                                    className="text-decoration-none text-dark"
+                                    className="text-decoration-none text-dark px-2 "
                                 >
-                                    Update Profile
+                                    <span className="px-1">Update Profile</span>
                                 </Link>
                             </button>
                         </div>

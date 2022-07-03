@@ -4,15 +4,22 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import { HiOutlinePlus } from "react-icons/hi";
 import { Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const UpdateProfile = () => {
     const [user, loading] = useAuthState(auth);
+    const { register, reset, handleSubmit } = useForm();
 
     if (loading) {
         return <p>Loading....</p>;
     }
+
+    const onSubmit = (data) => {
+        console.log(data);
+        reset();
+    };
     return (
-        <div>
+        <Form onSubmit={handleSubmit(onSubmit)}>
             <div className="container-fluid py-4">
                 <div className="row">
                     <div className="col-lg-3">
@@ -26,19 +33,9 @@ const UpdateProfile = () => {
                         >
                             <HiOutlinePlus />
                         </button>
-                        <div className="px-2 py-4">
-                            <button className="btn shadow-sm border-0 rounded-0 px-4 py-2 alert-success text-dark">
-                                <Link
-                                    to="/dashboard"
-                                    className="text-decoration-none text-dark"
-                                >
-                                    Update Profile
-                                </Link>
-                            </button>
-                        </div>
                     </div>
                     <div className="col-lg-9">
-                        <div className="">
+                        <div>
                             <div>
                                 <p className="m-0">Name:</p>
                                 <p className="text-muted col-lg-6">
@@ -61,6 +58,7 @@ const UpdateProfile = () => {
                                 <p className="m-0">Phone Number:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("phone")}
                                         type="number"
                                         className="rounded-0"
                                     />
@@ -70,6 +68,7 @@ const UpdateProfile = () => {
                                 <p className="m-0">Address:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("address")}
                                         type="text"
                                         className="rounded-0"
                                     />
@@ -79,6 +78,7 @@ const UpdateProfile = () => {
                                 <p className="m-0">Linkedin Account:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("linkedinLink")}
                                         type="text"
                                         className="rounded-0"
                                     />
@@ -88,6 +88,7 @@ const UpdateProfile = () => {
                                 <p className="m-0">Github Address:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("githubLink")}
                                         type="text"
                                         className="rounded-0"
                                     />
@@ -97,17 +98,29 @@ const UpdateProfile = () => {
                                 <p className="m-0">About:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("about")}
                                         as="textarea"
                                         rows={6}
                                         className="rounded-0"
                                     />
                                 </p>
                             </div>
+                            <div className=" py-4">
+                                <button className="btn shadow-sm border-0 rounded-0 px-5 py-2 alert-success text-dark">
+                                    <Link
+                                        type="submit"
+                                        to="/dashboard"
+                                        className="text-decoration-none text-dark"
+                                    >
+                                        Update Profile
+                                    </Link>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </Form>
     );
 };
 
