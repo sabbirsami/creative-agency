@@ -2,31 +2,68 @@
     {
         "id": 1,
         "name": "Web & Mobile design",
-        "img": "https://i.ibb.co/GF3L0DD/service1.png",
-        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+        "price": 56,
+        "feature": [
+            "Unlimited photos",
+            "Unlimited videos",
+            "Receive messages",
+            "Display your contact info"
+        ],
+        "dic": "Easy-to-use web and mobile designs that look great on all devices."
     },
     {
         "id": 2,
         "name": "Graphic design",
-        "img": "https://i.ibb.co/sqJJJWX/service2.png",
-        "dic": "Amazing flyers, social media posts and brand representations that would make your brand stand out."
+        "price": 88,
+        "feature": [
+            "Rank booster",
+            "Lead capturing buttons",
+            "Connect your social media",
+            "Link to your website",
+            "Promote your best review",
+            "Booking & Lead Logs",
+            "Display your contact info",
+            "Priority customer support"
+        ],
+        "dic": "Graphic design is a craft where professionals create visual content."
     },
     {
         "id": 3,
         "name": "Web development",
-        "img": "https://i.ibb.co/mRCPjDR/service3.png",
-        "dic": "With well written codes, we build amazing apps for all platforms, mobile and web apps in general."
+        "price": 99,
+        "feature": [
+            "Appear at the top of your city's search page",
+            "Appear at the top of popular spaces page",
+            "Receive a special 'Popular Now' banner",
+            "A custom pin drop on the map",
+            "Spaces Instagram takeover (*annual subscriber)",
+            "Priority customer support and on boarding",
+            "Advertising campaign"
+        ],
+        "dic": "Build, Organize & Collaborate on Work in One Place from Virtually Anywhere, w/ Confluence."
     },
     {
         "id": 4,
         "name": "Writing",
-        "img": "https://i.ibb.co/y0GTm84/service4.png",
-        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+        "price": 56,
+        "feature": [
+            "Unlimited photos",
+            "Unlimited videos",
+            "Receive messages",
+            "Display your contact info"
+        ],
+        "dic": "Easy-to-use web and mobile designs that look great on all devices."
     },
     {
         "id": 5,
         "name": "Microsoft Office",
-        "img": "https://i.ibb.co/t8CJNg8/service5.png",
-        "dic": "We craft stunning and amazing web UI, using a well drrafted UX to fit your product."
+        "price": 56,
+        "feature": [
+            "Unlimited photos",
+            "Unlimited videos",
+            "Receive messages",
+            "Display your contact info"
+        ],
+        "dic": "Easy-to-use web and mobile designs that look great on all devices."
     }
 ]

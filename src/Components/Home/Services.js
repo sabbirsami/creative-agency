@@ -17,28 +17,22 @@ const Services = () => {
     return (
         <div className="pb-5">
             <div className="container py-5">
-                <div className="row">
-                    <div className="col-lg-3">
-                        <div>
-                            <h1 className="display-4 pt-3">
-                                Provide awesome{" "}
-                                <span className="text-success">services</span>
-                            </h1>
-                            <p className="pt-4 d-lg-block d-none">
-                                <MdDoubleArrow className="fs-1 bg-gradient text-dark" />
-                            </p>
-                        </div>
+                <div className="col-lg-7 mx-auto">
+                    <div>
+                        <h1 className="display-5 fw-semibold pt-3 text-center">
+                            Our awesome services pricing plan made simple
+                        </h1>
+                        <p className="fs-5 text-center text-muted">
+                            Upgrade your space for higher rankings, powerful
+                            features & more ways to connect with potential
+                            customers
+                        </p>
                     </div>
-                    <div className="col-lg-9">
-                        <div className="row">
-                            {services.slice(0, 3).map((service) => (
-                                <Service
-                                    key={service.id}
-                                    service={service}
-                                ></Service>
-                            ))}
-                        </div>
-                    </div>
+                </div>
+                <div className="row pt-5">
+                    {services.slice(0, 3).map((service) => (
+                        <Service key={service.id} service={service}></Service>
+                    ))}
                 </div>
             </div>
         </div>
