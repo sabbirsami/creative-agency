@@ -10,17 +10,18 @@ import carousel_5 from "../images/carousel-5.png";
 const Work = () => {
     return (
         <div style={{ backgroundColor: "#111430" }}>
-            <div className="pt-lg-5">
+            <div className="pt-lg-4">
                 <div className="py-5">
-                    <h1 className="text-center text-white pb-5 pt-3 display-4">
-                        Here are some of{" "}
-                        <span className="text-success bg-light px-2 fw-semi-bold">
-                            our works
-                        </span>
+                    <h1 className="text-white display-5 fw-semibold pt-3 text-center ">
+                        Here are some of <span className="">our works</span>
                     </h1>
+                    <p className="fs-5 text-center text-light pb-5">
+                        Upgrade your space for higher rankings, powerful
+                        features & more ways to connect with potential customers
+                    </p>
                     <>
                         <Swiper
-                            slidesPerView={3}
+                            slidesPerView={4}
                             spaceBetween={30}
                             centeredSlides={true}
                             pagination={{

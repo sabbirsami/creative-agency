@@ -5,14 +5,20 @@ const QuestionAnswer = () => {
     return (
         <div>
             <div className="container">
+                <div className="col-lg-7 mx-auto">
+                    <h1 className="display-5 fw-semibold pt-3 text-center">
+                        Frequently asked questions
+                    </h1>
+                    <p className="fs-5 text-center text-muted">
+                        Here’s what you need to know about your Rocket license,
+                        based on the questions we get asked the most.
+                    </p>
+                </div>
                 <div className="pb-lg-5">
                     <div className="py-5">
-                        <Accordion defaultActiveKey="0" flush>
-                            <Accordion.Item
-                                className="border-0 py-1"
-                                eventKey="0"
-                            >
-                                <Accordion.Header className="border">
+                        <Accordion className="rounded-3">
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>
                                     <p className="pt-2">
                                         How will you improve the performance of
                                         a React Application?
@@ -33,11 +39,8 @@ const QuestionAnswer = () => {
                                     want.
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item
-                                className="border-0 py-1"
-                                eventKey="1"
-                            >
-                                <Accordion.Header className="border">
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>
                                     <p className="pt-2">
                                         Explain Call by value vs call by
                                         reference
@@ -55,11 +58,8 @@ const QuestionAnswer = () => {
                                     function calls.
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item
-                                className="border-0 py-1"
-                                eventKey="5"
-                            >
-                                <Accordion.Header className="border">
+                            <Accordion.Item eventKey="5">
+                                <Accordion.Header>
                                     <p className="pt-2">
                                         What are the different ways to manage a
                                         state in a React application?
@@ -93,11 +93,8 @@ const QuestionAnswer = () => {
                                     loading and error state.
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item
-                                className="border-0 py-1"
-                                eventKey="2"
-                            >
-                                <Accordion.Header className="border">
+                            <Accordion.Item eventKey="2">
+                                <Accordion.Header>
                                     <p className="pt-2">
                                         What is the scope of JavaScript?
                                     </p>
@@ -111,11 +108,8 @@ const QuestionAnswer = () => {
                                     temporary.
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item
-                                className="border-0 py-1"
-                                eventKey="3"
-                            >
-                                <Accordion.Header className="border">
+                            <Accordion.Item eventKey="3">
+                                <Accordion.Header>
                                     <p className="pt-2">
                                         Difference between Array vs LinkedList.
                                     </p>

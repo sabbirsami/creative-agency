@@ -10,10 +10,10 @@ const Feedback = () => {
             });
     }, []);
     return (
-        <div>
+        <div className="pb-lg-5">
             <div className="container py-4">
                 <div className="py-5">
-                    <h1 className="text-center">
+                    <h1 className=" display-5 fw-semibold pt-3 text-center ">
                         {" "}
                         Clients <span className="text-success">Feedback</span>
                     </h1>
