@@ -25,12 +25,14 @@ const Contact = () => {
             );
     };
     return (
-        <div className="bg-yellow">
+        <div style={{ backgroundColor: "#111430" }}>
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-6">
-                        <div className="pe-4">
-                            <h2>Let us handle your project, professionally.</h2>
+                        <div className="text-white">
+                            <h2 className="display-6">
+                                Let us handle your project, professionally.
+                            </h2>
                             <div className="col-lg-9 pt-3">
                                 <p>
                                     With well written codes, we build amazing
@@ -78,7 +80,7 @@ const Contact = () => {
                                     />
                                 </Form.Group>
                                 <Button
-                                    variant="dark"
+                                    variant="light"
                                     className="rounded-1 border-0 px-5"
                                     type="submit"
                                 >
@@ -89,7 +91,7 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className="pt-5">
-                    <p className="text-center pt-3">
+                    <p className="text-center text-white pt-3">
                         copyright Orange labs 2020
                     </p>
                 </div>
