@@ -32,15 +32,15 @@ const ContactSection = () => {
     return (
         <>
             <HeaderNavbar></HeaderNavbar>
-            <div style={{ height: "90vh" }}>
+            <div style={{ height: "91vh", backgroundColor: "#111430" }}>
                 <div
-                    className="d-flex py-5 align-items-center bg-yellow"
+                    className="d-flex py-5 align-items-center"
                     style={{ height: "91vh" }}
                 >
                     <div className="container d-flex justify-content-center py-5">
                         <div className="row ">
                             {/* d-flex flex-column */}
-                            <div className="col-lg-7 pt-lg-0 mt-lg-0 pt-5 mt-5">
+                            <div className="col-lg-7 text-white pt-lg-0 mt-lg-0 pt-5 mt-5">
                                 <h1>
                                     Let's talk & make something amazing
                                     together.
@@ -109,7 +109,7 @@ const ContactSection = () => {
                                             />
                                         </Form.Group>
                                         <Button
-                                            variant="dark"
+                                            variant="light"
                                             className="rounded-1 border-0 px-5"
                                             type="submit"
                                         >
