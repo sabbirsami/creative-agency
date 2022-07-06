@@ -28,10 +28,34 @@ const Order = () => {
         }
         setValidated(true);
         if (validated) {
-            console.log(data);
+            const userOrder = {
+                userFullName: data.name,
+                userEmail: data.email,
+                userAddress: data.address,
+                userPhone: data.phone,
+                userName: data.userName,
+                serviceName: name,
+                servicePrice: price,
+                serviceDic: dic,
+                serviceFeature: feature,
+                serviceId: _id,
+            };
+            console.log(userOrder);
+            fetch("http://localhost:5000/orders", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userOrder),
+            })
+                .then((response) => response.json())
+                .then((result) => {
+                    console.log("Success:", result);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
         }
-
-        // reset();
     };
 
     return (
