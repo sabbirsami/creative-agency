@@ -11,6 +11,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import ContactSection from "./Components/ContactSection/ContactSection";
 import Profile from "./Components/Dashboard/Profile";
 import UpdateProfile from "./Components/Dashboard/UpdateProfile";
+import Order from "./Components/Order";
 
 function App() {
     return (
@@ -49,6 +50,7 @@ function App() {
                     ></Route>
                 </Route>
                 <Route path="/contact" element={<ContactSection />}></Route>
+                <Route path="/services/:id" element={<Order />}></Route>
                 <Route path="*" element={<PageNotFount />}></Route>
             </Routes>
         </div>

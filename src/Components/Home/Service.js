@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillCartPlusFill, BsCheckCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Service = ({ service }) => {
     return (
@@ -31,13 +32,16 @@ const Service = ({ service }) => {
                                 <p className="m-0 ms-3">{features}</p>
                             </p>
                         ))}
-                        <button className="btn btn-outline-dark w-100 border-2 rounded-3">
+
+                        <Link
+                            to={`/services/${service._id}`}
+                            className="btn btn-outline-dark w-100 border-2 rounded-3"
+                        >
                             <p className="m-0">
-                                {" "}
                                 Add to cart{" "}
                                 <BsFillCartPlusFill className="ms-3"></BsFillCartPlusFill>
                             </p>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
