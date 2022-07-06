@@ -4,10 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import { BsFillCartPlusFill, BsCheckCircleFill } from "react-icons/bs";
 import HeaderNavbar from "./HeaderNavbar";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 
 const Order = () => {
     const { id } = useParams();
-    console.log(id);
+    const { register, reset, handleSubmit } = useForm();
+
     const { data: service, isLoading } = useQuery("singleService", () =>
         fetch(`http://localhost:5000/services/${id}`).then((res) => res.json())
     );
@@ -17,15 +19,21 @@ const Order = () => {
     }
     const { name, price, dic, feature, _id } = service[0];
 
-    const handleSubmit = (event) => {
+    const onSubmit = (data, event) => {
+        console.log(event);
         const form = event.currentTarget;
-        if (form.checkValidity() === false) {
+        if (form?.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
-
         setValidated(true);
+        if (validated) {
+            console.log(data);
+        }
+
+        // reset();
     };
+
     return (
         <div>
             <HeaderNavbar />
@@ -80,39 +88,30 @@ const Order = () => {
                             <Form
                                 noValidate
                                 validated={validated}
-                                onSubmit={handleSubmit}
+                                onSubmit={handleSubmit(onSubmit)}
                             >
                                 <Row className="mb-3">
                                     <Form.Group
                                         as={Col}
-                                        md="4"
+                                        md="8"
                                         controlId="validationCustom01"
                                     >
-                                        <Form.Label>First name</Form.Label>
+                                        <Form.Label>Full Name</Form.Label>
                                         <Form.Control
                                             required
                                             type="text"
-                                            placeholder="First name"
+                                            {...register("name", {
+                                                required: {
+                                                    value: true,
+                                                },
+                                            })}
+                                            placeholder="Full Name"
                                         />
                                         <Form.Control.Feedback>
                                             Looks good!
                                         </Form.Control.Feedback>
                                     </Form.Group>
-                                    <Form.Group
-                                        as={Col}
-                                        md="4"
-                                        controlId="validationCustom02"
-                                    >
-                                        <Form.Label>Last name</Form.Label>
-                                        <Form.Control
-                                            required
-                                            type="text"
-                                            placeholder="Last name"
-                                        />
-                                        <Form.Control.Feedback>
-                                            Looks good!
-                                        </Form.Control.Feedback>
-                                    </Form.Group>
+
                                     <Form.Group
                                         as={Col}
                                         md="4"
@@ -125,6 +124,11 @@ const Order = () => {
                                             </InputGroup.Text>
                                             <Form.Control
                                                 type="text"
+                                                {...register("userName", {
+                                                    required: {
+                                                        value: true,
+                                                    },
+                                                })}
                                                 placeholder="Username"
                                                 aria-describedby="inputGroupPrepend"
                                                 required
@@ -144,6 +148,11 @@ const Order = () => {
                                         <Form.Label>Phone</Form.Label>
                                         <Form.Control
                                             type="number"
+                                            {...register("phone", {
+                                                required: {
+                                                    value: true,
+                                                },
+                                            })}
                                             placeholder="Phone Number"
                                             required
                                         />
@@ -159,6 +168,11 @@ const Order = () => {
                                         <Form.Label>Email Address</Form.Label>
                                         <Form.Control
                                             type="email"
+                                            {...register("email", {
+                                                required: {
+                                                    value: true,
+                                                },
+                                            })}
                                             placeholder="Email Address"
                                             required
                                         />
@@ -170,47 +184,22 @@ const Order = () => {
                                 <Row className="mb-3">
                                     <Form.Group
                                         as={Col}
-                                        md="6"
+                                        md="12"
                                         controlId="validationCustom03"
                                     >
-                                        <Form.Label>City</Form.Label>
+                                        <Form.Label>Address</Form.Label>
                                         <Form.Control
+                                            {...register("address", {
+                                                required: {
+                                                    value: true,
+                                                },
+                                            })}
                                             type="text"
-                                            placeholder="City"
+                                            placeholder="Address"
                                             required
                                         />
                                         <Form.Control.Feedback type="invalid">
-                                            Please provide a valid city.
-                                        </Form.Control.Feedback>
-                                    </Form.Group>
-                                    <Form.Group
-                                        as={Col}
-                                        md="3"
-                                        controlId="validationCustom04"
-                                    >
-                                        <Form.Label>State</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="State"
-                                            required
-                                        />
-                                        <Form.Control.Feedback type="invalid">
-                                            Please provide a valid state.
-                                        </Form.Control.Feedback>
-                                    </Form.Group>
-                                    <Form.Group
-                                        as={Col}
-                                        md="3"
-                                        controlId="validationCustom05"
-                                    >
-                                        <Form.Label>Zip</Form.Label>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="Zip"
-                                            required
-                                        />
-                                        <Form.Control.Feedback type="invalid">
-                                            Please provide a valid zip.
+                                            Please provide your address.
                                         </Form.Control.Feedback>
                                     </Form.Group>
                                 </Row>
@@ -222,7 +211,10 @@ const Order = () => {
                                         feedbackType="invalid"
                                     />
                                 </Form.Group>
-                                <Button type="submit" className="btn-success">
+                                <Button
+                                    type="submit"
+                                    className="btn-success px-4"
+                                >
                                     Order Now
                                 </Button>
                             </Form>
