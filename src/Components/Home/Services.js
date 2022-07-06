@@ -1,19 +1,15 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+
+import { useQuery } from "react-query";
 import Service from "./Service";
-import { MdDoubleArrow } from "react-icons/md";
 
 const Services = () => {
-    const [services, setServices] = useState([]);
-    useEffect(() => {
-        fetch("services.json")
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setServices(data);
-            });
-    }, []);
+    const { data: services, isLoading } = useQuery("services", () =>
+        fetch("http://localhost:5000/services").then((res) => res.json())
+    );
+    if (isLoading) {
+        return <p>Loading..</p>;
+    }
     return (
         <div className="pb-5">
             <div className="container py-5">
@@ -31,7 +27,7 @@ const Services = () => {
                 </div>
                 <div className="row pt-5">
                     {services.slice(0, 3).map((service) => (
-                        <Service key={service.id} service={service}></Service>
+                        <Service key={service._id} service={service}></Service>
                     ))}
                 </div>
             </div>
