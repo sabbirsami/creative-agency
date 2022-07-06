@@ -23,16 +23,16 @@ const UpdateProfile = () => {
             <div className="container-fluid py-4">
                 <div className="row">
                     <div className="col-lg-3">
-                        <button
+                        <Form.Control
+                            type="file"
+                            {...register("photo")}
                             style={{
                                 width: "250px",
                                 height: "250px",
                                 border: "2px dashed",
                             }}
                             className="p-2 bg-white rounded d-flex justify-content-center align-items-center"
-                        >
-                            <HiOutlinePlus />
-                        </button>
+                        ></Form.Control>
                     </div>
                     <div className="col-lg-9">
                         <div>
@@ -40,6 +40,7 @@ const UpdateProfile = () => {
                                 <p className="m-0">Name:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("name")}
                                         type="text"
                                         className="rounded-0"
                                     />
@@ -49,7 +50,10 @@ const UpdateProfile = () => {
                                 <p className="m-0">Email:</p>
                                 <p className="text-muted col-lg-6">
                                     <Form.Control
+                                        {...register("email")}
                                         type="email"
+                                        readOnly
+                                        value={user?.email}
                                         className="rounded-0"
                                     />
                                 </p>

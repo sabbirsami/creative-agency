@@ -34,7 +34,7 @@ const HeaderNavbar = () => {
                                 alt=""
                             />
                             <button
-                                class="btn btn-white d-block d-lg-none"
+                                className="btn btn-white d-block d-lg-none"
                                 type="button"
                                 onClick={handleShow}
                             >
