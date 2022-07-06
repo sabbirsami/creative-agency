@@ -60,7 +60,15 @@ const HeaderNavbar = () => {
                                         Contact Us
                                     </CustomLink>
                                     <CustomLink to="/dashboard">
-                                        Dashboard
+                                        <button className="position-relative btn p-0 m-0 fw-semibold">
+                                            Dashboard
+                                        </button>
+                                        <span class="position-absolute translate-middle badge rounded-pill bg-danger">
+                                            99+
+                                        </span>
+                                        <span class="visually-hidden">
+                                            unread messages
+                                        </span>
                                     </CustomLink>
                                 </Nav>
                             </Navbar.Collapse>
