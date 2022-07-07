@@ -14,6 +14,7 @@ import Order from "./Components/Order";
 import { Toaster } from "react-hot-toast";
 import MyOrder from "./Components/Dashboard/MyOrder";
 import ServiceList from "./Components/Dashboard/ServiceList";
+import ManageOrders from "./Components/Dashboard/ManageOrders";
 
 function App() {
     return (
@@ -35,7 +36,7 @@ function App() {
                     ></Route>
                     <Route
                         path="manage-order"
-                        element={<ContactSection />}
+                        element={<ManageOrders />}
                     ></Route>
                     <Route path="my-order" element={<MyOrder />}></Route>
                     <Route
