@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import auth from "../firebase.init";
+import { IoIosArrowDropleft } from "react-icons/io";
 import {
     useSignInWithEmailAndPassword,
     useSignInWithFacebook,
@@ -59,6 +60,9 @@ const Login = () => {
     return (
         <div>
             <div className="container pt-lg-5">
+                <button onClick={() => navigate(-1)} className="btn">
+                    <IoIosArrowDropleft className="display-6 fw-light" />
+                </button>
                 <div className="pt-4 text-center">
                     <h1 className="fw-semibold display-3 pt-lg-5 pb-2">
                         Log In

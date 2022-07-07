@@ -1,11 +1,8 @@
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import auth from "../../firebase.init";
 import toast from "react-hot-toast";
 
 const ServiceList = () => {
-    const [user] = useAuthState(auth);
     const {
         data: services,
         refetch,

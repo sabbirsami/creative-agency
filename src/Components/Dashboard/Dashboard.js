@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useQuery } from "react-query";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { FiHardDrive } from "react-icons/fi";
 import { MdReviews } from "react-icons/md";
@@ -16,9 +16,16 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const Dashboard = () => {
     const [user, loading] = useAuthState(auth);
 
-    if (loading) {
+    const { data, isLoading } = useQuery("currentUser", () =>
+        fetch(`http://localhost:5000/users/${user.email}`).then((res) =>
+            res.json()
+        )
+    );
+
+    if (loading || isLoading) {
         return <p>Loading....</p>;
     }
+
     return (
         <div>
             {/* DASHBOARD HEADER START */}
@@ -52,7 +59,7 @@ const Dashboard = () => {
                                     </button> */}
                                     <div>
                                         <h6 className="fw-semi-bold m-0 text-success">
-                                            {user?.displayName}
+                                            {data?.name || user?.displayName}
                                         </h6>
                                         <p className="m-0">
                                             <small>{user?.email}</small>

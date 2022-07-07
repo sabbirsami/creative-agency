@@ -6,10 +6,10 @@ import auth from "../../firebase.init";
 import profile from "../../images/profile.png";
 
 const Profile = () => {
-    const [user, loading, error] = useAuthState(auth);
-    // console.log(user);
+    const [user, loading] = useAuthState(auth);
+
     const { data, isLoading } = useQuery("currentUser", () =>
-        fetch(`http://localhost:5000/users/${user.email}`).then((res) =>
+        fetch(`http://localhost:5000/users/${user?.email}`).then((res) =>
             res.json()
         )
     );
@@ -17,7 +17,7 @@ const Profile = () => {
     if (loading || isLoading) {
         return <p>Loading....</p>;
     }
-    console.log(data);
+
     return (
         <div>
             <div className="container-fluid py-4">
