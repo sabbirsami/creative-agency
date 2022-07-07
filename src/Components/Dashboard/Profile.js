@@ -1,15 +1,23 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import profile from "../../images/profile.png";
 
 const Profile = () => {
     const [user, loading, error] = useAuthState(auth);
     // console.log(user);
-    if (loading) {
+    const { data, isLoading } = useQuery("currentUser", () =>
+        fetch(`http://localhost:5000/users/${user.email}`).then((res) =>
+            res.json()
+        )
+    );
+
+    if (loading || isLoading) {
         return <p>Loading....</p>;
     }
+    console.log(data);
     return (
         <div>
             <div className="container-fluid py-4">
@@ -49,20 +57,22 @@ const Profile = () => {
                             <div>
                                 <p className="m-0">Name:</p>
                                 <p className="text-muted">
-                                    {user?.displayName}
+                                    {data?.name || user?.displayName}
                                 </p>
                             </div>
                             <div>
                                 <p className="m-0">Email:</p>
-                                <p className="text-muted">{user?.email}</p>
+                                <p className="text-muted">
+                                    {data?.email || user?.email}
+                                </p>
                             </div>
                             <div>
                                 <p className="m-0">Phone Number:</p>
-                                <p className="text-muted">+8801970706676</p>
+                                <p className="text-muted">{data?.phone}</p>
                             </div>
                             <div>
                                 <p className="m-0">Address:</p>
-                                <p className="text-muted">Dhaka, Bangladesh</p>
+                                <p className="text-muted">{data?.address}</p>
                             </div>
                             <div>
                                 <p className="m-0">Linkedin Account:</p>
@@ -70,10 +80,10 @@ const Profile = () => {
                                     <a
                                         target={"_blank"}
                                         rel="noreferrer"
-                                        href="https://www.linkedin.com/in/sabbir-mohammad-sami/"
+                                        href={data?.githubLink}
                                         className="text-muted"
                                     >
-                                        https://www.linkedin.com/in/sabbir-mohammad-sami/
+                                        {data?.githubLink}
                                     </a>
                                 </p>
                             </div>
@@ -83,23 +93,16 @@ const Profile = () => {
                                     <a
                                         target={"_blank"}
                                         rel="noreferrer"
-                                        href="https://github.com/sabbirsami"
+                                        href={data?.linkedinLink}
                                         className="text-muted"
                                     >
-                                        https://github.com/sabbirsami
+                                        {data?.linkedinLink}
                                     </a>
                                 </p>
                             </div>
                             <div>
                                 <p className="m-0">About:</p>
-                                <p className="text-muted">
-                                    Lorem ipsum dolor sit, amet consectetur
-                                    adipisicing elit. Quod sequi, repudiandae
-                                    tempora quaerat minima dolorem officia,
-                                    obcaecati rerum consectetur voluptatem,
-                                    voluptatum est fugiat officiis! Velit porro
-                                    itaque soluta numquam error!
-                                </p>
+                                <p className="text-muted">{data?.about}</p>
                             </div>
                         </div>
                     </div>
