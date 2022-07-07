@@ -1,8 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import auth from "../../firebase.init";
 const MyOrder = () => {
+    const [user, loading] = useAuthState(auth);
     const { data: orders, isLoading } = useQuery("orders", () =>
-        fetch("http://localhost:5000/orders").then((res) => res.json())
+        fetch(`http://localhost:5000/order?email=${user.email}`, {
+            method: "GET",
+        }).then((res) => res.json())
     );
     if (isLoading) {
         return <p>Loading..</p>;
@@ -14,7 +19,7 @@ const MyOrder = () => {
                     className="m-2 p-3 rounded-2"
                     style={{ backgroundColor: "#F5F6FA" }}
                 >
-                    <div className="row rounded-4">
+                    <div className="row rounded-3">
                         <div className="col-2">Service</div>
                         <div className="col-3">Email ID</div>
                         <div className="col-1">Price</div>
@@ -27,16 +32,18 @@ const MyOrder = () => {
                     <div className="m-2 p-3 rounded-2">
                         <div className="row align-items-center">
                             <div className="col-2">{order.serviceName}</div>
-                            <div className="col-3">${order.userEmail}</div>
+                            <div className="col-3">{order.userEmail}</div>
                             <div className="col-1">${order.servicePrice}</div>
                             <div className="col-4">{order.serviceDic}</div>
                             <div className="col-1">
-                                <button className="btn btn-danger">
+                                <button className="btn px-0 text-danger ">
                                     Cancel
                                 </button>
                             </div>
                             <div className="col-1">
-                                <button className="btn btn-success">Pay</button>
+                                <button className="btn px-0 text-success">
+                                    Pay
+                                </button>
                             </div>
                         </div>
                     </div>

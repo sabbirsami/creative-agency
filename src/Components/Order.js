@@ -6,9 +6,12 @@ import HeaderNavbar from "./HeaderNavbar";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
 
 const Order = () => {
     const { id } = useParams();
+    const [user, loading] = useAuthState(auth);
     const { register, reset, handleSubmit } = useForm();
 
     const { data: service, isLoading } = useQuery("singleService", () =>
@@ -202,6 +205,8 @@ const Order = () => {
                                                     value: true,
                                                 },
                                             })}
+                                            readOnly
+                                            value={user?.email}
                                             placeholder="Email Address"
                                             required
                                         />
