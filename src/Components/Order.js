@@ -5,6 +5,7 @@ import { BsFillCartPlusFill, BsCheckCircleFill } from "react-icons/bs";
 import HeaderNavbar from "./HeaderNavbar";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Order = () => {
     const { id } = useParams();
@@ -51,6 +52,10 @@ const Order = () => {
                 .then((response) => response.json())
                 .then((result) => {
                     console.log("Success:", result);
+                    reset();
+                    toast.success("Successfully Order!", {
+                        duration: 4000,
+                    });
                 })
                 .catch((error) => {
                     console.error("Error:", error);

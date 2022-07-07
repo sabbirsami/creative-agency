@@ -12,6 +12,7 @@ import ContactSection from "./Components/ContactSection/ContactSection";
 import Profile from "./Components/Dashboard/Profile";
 import UpdateProfile from "./Components/Dashboard/UpdateProfile";
 import Order from "./Components/Order";
+import { Toaster } from "react-hot-toast";
 
 function App() {
     return (
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/services/:id" element={<Order />}></Route>
                 <Route path="*" element={<PageNotFount />}></Route>
             </Routes>
+            <Toaster />
         </div>
     );
 }
