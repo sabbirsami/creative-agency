@@ -1,9 +1,13 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import auth from "../../firebase.init";
 
 const AddReview = () => {
     const { register, reset, handleSubmit } = useForm();
+    const [user, loading] = useAuthState(auth);
 
     const onSubmit = (data) => {
         console.log(data);
@@ -16,7 +20,9 @@ const AddReview = () => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
+                toast.success("Successfully Order!", {
+                    duration: 4000,
+                });
                 reset();
             });
     };
@@ -36,7 +42,9 @@ const AddReview = () => {
                                             value: true,
                                         },
                                     })}
+                                    value={user?.displayName}
                                     name="name"
+                                    readOnly
                                     type="name"
                                     className="rounded-1 border-0 py-3"
                                     placeholder="Your Name"
@@ -47,6 +55,8 @@ const AddReview = () => {
                                 controlId="exampleForm.ControlInput1"
                             >
                                 <Form.Control
+                                    value={user?.email}
+                                    readOnly
                                     {...register("email", {
                                         required: {
                                             value: true,
