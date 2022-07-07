@@ -5,6 +5,7 @@ import auth from "../../firebase.init";
 import { HiOutlinePlus } from "react-icons/hi";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const UpdateProfile = () => {
     const [user, loading] = useAuthState(auth);
@@ -16,7 +17,25 @@ const UpdateProfile = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        reset();
+        const email = data.email;
+        fetch(`http://localhost:5000/users/${email}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log("Success:", result);
+                reset();
+                toast.success("Successfully update profile", {
+                    duration: 4000,
+                });
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
     };
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
