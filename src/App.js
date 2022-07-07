@@ -15,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import MyOrder from "./Components/Dashboard/MyOrder";
 import ServiceList from "./Components/Dashboard/ServiceList";
 import ManageOrders from "./Components/Dashboard/ManageOrders";
+import ManageUsers from "./Components/Dashboard/ManageUsers";
 
 function App() {
     return (
@@ -47,10 +48,7 @@ function App() {
                         path="add-review"
                         element={<ContactSection />}
                     ></Route>
-                    <Route
-                        path="manage-user"
-                        element={<ContactSection />}
-                    ></Route>
+                    <Route path="manage-user" element={<ManageUsers />}></Route>
                 </Route>
                 <Route path="/contact" element={<ContactSection />}></Route>
                 <Route path="/services/:id" element={<Order />}></Route>
