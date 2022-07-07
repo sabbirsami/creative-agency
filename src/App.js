@@ -18,6 +18,7 @@ import ServiceList from "./Components/Dashboard/ServiceList";
 import ManageOrders from "./Components/Dashboard/ManageOrders";
 import ManageUsers from "./Components/Dashboard/ManageUsers";
 import AddReview from "./Components/Dashboard/AddReview";
+import ManageReviews from "./Components/Dashboard/ManageReviews";
 
 function App() {
     return (
@@ -51,7 +52,7 @@ function App() {
                     <Route path="my-order" element={<MyOrder />}></Route>
                     <Route
                         path="manage-review"
-                        element={<ContactSection />}
+                        element={<ManageReviews />}
                     ></Route>
                     <Route path="add-review" element={<AddReview />}></Route>
                     <Route path="manage-user" element={<ManageUsers />}></Route>
