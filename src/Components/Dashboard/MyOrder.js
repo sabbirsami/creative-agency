@@ -11,16 +11,19 @@ const MyOrder = () => {
         refetch,
         isLoading,
     } = useQuery("orders", () =>
-        fetch(`http://localhost:5000/order?email=${user?.email}`, {
-            method: "GET",
-        }).then((res) => res.json())
+        fetch(
+            `https://creative-agency-2022.herokuapp.com/order?email=${user?.email}`,
+            {
+                method: "GET",
+            }
+        ).then((res) => res.json())
     );
     if (isLoading) {
         return <p>Loading..</p>;
     }
     const handleCancel = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://creative-agency-2022.herokuapp.com/orders/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

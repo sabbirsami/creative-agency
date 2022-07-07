@@ -9,7 +9,7 @@ const ServiceList = () => {
         refetch,
         isLoading,
     } = useQuery("orders", () =>
-        fetch(`http://localhost:5000/services`, {
+        fetch(`https://creative-agency-2022.herokuapp.com/services`, {
             method: "GET",
         }).then((res) => res.json())
     );
@@ -18,7 +18,7 @@ const ServiceList = () => {
     }
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/services/${id}`, {
+        fetch(`https://creative-agency-2022.herokuapp.com/services/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())

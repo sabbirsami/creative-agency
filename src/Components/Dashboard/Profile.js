@@ -10,9 +10,9 @@ const Profile = () => {
     const [user, loading] = useAuthState(auth);
 
     const { data, isLoading } = useQuery("currentUser", () =>
-        fetch(`http://localhost:5000/users/${user?.email}`).then((res) =>
-            res.json()
-        )
+        fetch(
+            `https://creative-agency-2022.herokuapp.com/users/${user?.email}`
+        ).then((res) => res.json())
     );
 
     if (loading || isLoading) {

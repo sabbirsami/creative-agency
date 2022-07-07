@@ -16,7 +16,9 @@ const Order = () => {
     const { register, reset, handleSubmit } = useForm();
 
     const { data: service, isLoading } = useQuery("singleService", () =>
-        fetch(`http://localhost:5000/services/${id}`).then((res) => res.json())
+        fetch(`https://creative-agency-2022.herokuapp.com/services/${id}`).then(
+            (res) => res.json()
+        )
     );
     const [validated, setValidated] = useState(false);
     if (isLoading) {
@@ -46,7 +48,7 @@ const Order = () => {
                 serviceId: _id,
             };
             console.log(userOrder);
-            fetch("http://localhost:5000/orders", {
+            fetch("https://creative-agency-2022.herokuapp.com/orders", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -9,7 +9,7 @@ const DashboardLink = ({ children, to, ...props }) => {
             style={{
                 borderLeft: match ? "6px solid #157347" : "6px solid #F8F9FA",
                 backgroundColor: match ? "#ffffff" : "none",
-                color: match ? "#157347" : "000000b2",
+                color: match ? "#157347" : "#464646",
                 fontWeight: match ? "600" : "400",
             }}
             to={to}
