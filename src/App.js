@@ -19,6 +19,7 @@ import ManageOrders from "./Components/Dashboard/ManageOrders";
 import ManageUsers from "./Components/Dashboard/ManageUsers";
 import AddReview from "./Components/Dashboard/AddReview";
 import ManageReviews from "./Components/Dashboard/ManageReviews";
+import AddAdmin from "./Components/Dashboard/AddAdmin";
 
 function App() {
     return (
@@ -37,10 +38,7 @@ function App() {
                 >
                     <Route path="service" element={<ServiceList />}></Route>
                     <Route index element={<Profile />}></Route>
-                    <Route
-                        path="add-admin"
-                        element={<ContactSection />}
-                    ></Route>
+                    <Route path="add-admin" element={<AddAdmin />}></Route>
                     <Route
                         path="update-profile"
                         element={<UpdateProfile />}
