@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { Link, useParams } from "react-router-dom";
-import { BsFillCartPlusFill, BsCheckCircleFill } from "react-icons/bs";
+import { useParams } from "react-router-dom";
+import { BsCheckCircleFill } from "react-icons/bs";
 import HeaderNavbar from "./HeaderNavbar";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -11,7 +11,7 @@ import auth from "../firebase.init";
 
 const Order = () => {
     const { id } = useParams();
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const { register, reset, handleSubmit } = useForm();
 
     const { data: service, isLoading } = useQuery("singleService", () =>
@@ -103,8 +103,6 @@ const Order = () => {
                                             </p>
                                         </p>
                                     ))}
-
-                                    
                                 </div>
                             </div>
                         </div>

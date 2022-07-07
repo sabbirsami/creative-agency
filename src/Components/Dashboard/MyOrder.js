@@ -5,7 +5,7 @@ import auth from "../../firebase.init";
 import toast from "react-hot-toast";
 
 const MyOrder = () => {
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const {
         data: orders,
         refetch,

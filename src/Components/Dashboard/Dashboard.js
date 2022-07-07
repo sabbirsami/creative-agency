@@ -1,5 +1,5 @@
 import React from "react";
-import { signOut } from "firebase/auth";
+
 import { TbLayoutDashboard } from "react-icons/tb";
 import { FiHardDrive } from "react-icons/fi";
 import { MdReviews } from "react-icons/md";
@@ -14,7 +14,7 @@ import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const Dashboard = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     if (loading) {
         return <p>Loading....</p>;

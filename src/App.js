@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Style.css";
 import "swiper/css";
-import HeaderNavbar from "./Components/HeaderNavbar";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Login from "./Shared/Login";
