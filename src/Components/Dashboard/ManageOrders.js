@@ -13,6 +13,7 @@ const ManageOrders = () => {
             res.json()
         )
     );
+
     if (isLoading) {
         return <Loading />;
     }
@@ -37,9 +38,9 @@ const ManageOrders = () => {
                     style={{ backgroundColor: "#F5F6FA" }}
                 >
                     <div className="row rounded-3">
+                        <div className="col-2">Name</div>
+                        <div className="col-2">Email ID</div>
                         <div className="col-2">Service</div>
-                        <div className="col-3">Email ID</div>
-                        <div className="col-1">Price</div>
                         <div className="col-4">Details</div>
                         <div className="col-1">Delete</div>
                         <div className="col-1">Pay</div>
@@ -48,9 +49,9 @@ const ManageOrders = () => {
                 {orders.map((order) => (
                     <div className="m-2 p-3 rounded-2">
                         <div className="row align-items-center">
+                            <div className="col-2">{order.userFullName}</div>
+                            <div className="col-2">{order.userEmail}</div>
                             <div className="col-2">{order.serviceName}</div>
-                            <div className="col-3">{order.userEmail}</div>
-                            <div className="col-1">${order.servicePrice}</div>
                             <div className="col-4">{order.serviceDic}</div>
                             <div className="col-1">
                                 <button
