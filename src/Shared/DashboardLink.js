@@ -5,12 +5,12 @@ const DashboardLink = ({ children, to, ...props }) => {
     let match = useMatch({ path: resolved.pathname, end: true });
     return (
         <Link
-            className="nav-link px-4 py-3 fw-semi-bold"
+            className="nav-link px-5 py-3 fw-semi-bold"
             style={{
-                borderLeft: match ? "6px solid #157347" : "6px solid #F8F9FA",
+                // borderLeft: match ? "6px solid #157347" : "6px solid #F8F9FA",
                 backgroundColor: match ? "#ffffff" : "",
-                color: match ? "#157347" : "#464646",
-                fontWeight: match ? "600" : "400",
+                color: match ? "#009444" : "#464646",
+                fontWeight: match ? "500" : "400",
             }}
             to={to}
             {...props}

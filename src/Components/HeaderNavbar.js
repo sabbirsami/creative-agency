@@ -12,7 +12,7 @@ import Loading from "./Loading";
 
 const HeaderNavbar = () => {
     const [show, setShow] = useState(false);
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
