@@ -2,9 +2,15 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
+import toast from "react-hot-toast";
+
 const MyOrder = () => {
     const [user, loading] = useAuthState(auth);
-    const { data: orders, isLoading } = useQuery("orders", () =>
+    const {
+        data: orders,
+        refetch,
+        isLoading,
+    } = useQuery("orders", () =>
         fetch(
             `https://creative-agency-2022.herokuapp.com/order?email=${user.email}`,
             {
@@ -17,6 +23,16 @@ const MyOrder = () => {
     }
     const handleCancel = (id) => {
         console.log(id);
+        fetch(`https://creative-agency-2022.herokuapp.com/orders/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                toast.success("Order cancel", {
+                    duration: 4000,
+                });
+                refetch();
+            });
     };
     return (
         <div>

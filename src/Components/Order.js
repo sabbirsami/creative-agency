@@ -104,15 +104,7 @@ const Order = () => {
                                         </p>
                                     ))}
 
-                                    <Link
-                                        to={`/services/${_id}`}
-                                        className="btn btn-outline-dark w-100 border-2 rounded-3"
-                                    >
-                                        <p className="m-0">
-                                            Add to cart{" "}
-                                            <BsFillCartPlusFill className="ms-3"></BsFillCartPlusFill>
-                                        </p>
-                                    </Link>
+                                    
                                 </div>
                             </div>
                         </div>
