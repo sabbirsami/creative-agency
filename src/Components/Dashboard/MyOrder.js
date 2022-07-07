@@ -5,13 +5,19 @@ import auth from "../../firebase.init";
 const MyOrder = () => {
     const [user, loading] = useAuthState(auth);
     const { data: orders, isLoading } = useQuery("orders", () =>
-        fetch(`http://localhost:5000/order?email=${user.email}`, {
-            method: "GET",
-        }).then((res) => res.json())
+        fetch(
+            `https://creative-agency-2022.herokuapp.com/order?email=${user.email}`,
+            {
+                method: "GET",
+            }
+        ).then((res) => res.json())
     );
     if (isLoading) {
         return <p>Loading..</p>;
     }
+    const handleCancel = (id) => {
+        console.log(id);
+    };
     return (
         <div>
             <div className=" bg-white rounded-3 mt-3 p-2">
@@ -36,7 +42,10 @@ const MyOrder = () => {
                             <div className="col-1">${order.servicePrice}</div>
                             <div className="col-4">{order.serviceDic}</div>
                             <div className="col-1">
-                                <button className="btn px-0 text-danger ">
+                                <button
+                                    onClick={() => handleCancel(order._id)}
+                                    className="btn px-0 text-danger "
+                                >
                                     Cancel
                                 </button>
                             </div>

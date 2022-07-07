@@ -18,7 +18,7 @@ const UpdateProfile = () => {
     const onSubmit = (data) => {
         console.log(data);
         const email = data.email;
-        fetch(`http://localhost:5000/users/${email}`, {
+        fetch(`https://creative-agency-2022.herokuapp.com/users/${email}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
