@@ -4,11 +4,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import auth from "../../firebase.init";
+import Loading from "../Loading";
 
 const AddReview = () => {
     const { register, reset, handleSubmit } = useForm();
     const [user, loading] = useAuthState(auth);
 
+    if (loading) {
+        return <Loading />;
+    }
     const onSubmit = (data) => {
         console.log(data);
         fetch("https://creative-agency-2022.herokuapp.com/reviews", {

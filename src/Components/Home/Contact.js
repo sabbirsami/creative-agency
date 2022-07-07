@@ -44,7 +44,7 @@ const Contact = () => {
                     </div>
                     <div className="col-lg-6">
                         <div className="">
-                            <Form>
+                            <Form ref={form} onSubmit={sendEmail}>
                                 <Form.Group
                                     className="mb-3"
                                     controlId="exampleForm.ControlInput1"
