@@ -39,7 +39,7 @@ const ManageUsers = () => {
                     <div className="row rounded-3">
                         <div className="col-2">User Name</div>
                         <div className="col-2">Email ID</div>
-                        <div className="col-1">Phone Number</div>
+                        <div className="col-1">Phone</div>
                         <div className="col-3">Linkedin Link</div>
                         <div className="col-3">Github Link</div>
                         <div className="col-1">Delete</div>
@@ -50,7 +50,7 @@ const ManageUsers = () => {
                         <div className="row align-items-center">
                             <div className="col-2">{order.name}</div>
                             <div className="col-2">{order.email}</div>
-                            <div className="col-1">${order.phone}</div>
+                            <div className="col-1">{order.phone}</div>
                             <div className="col-3">
                                 <a
                                     target={"_blank"}

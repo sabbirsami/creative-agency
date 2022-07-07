@@ -38,26 +38,21 @@ const Dashboard = () => {
                                 <div className="col-lg-2">
                                     <Link to="/">
                                         <img
-                                            className="w-25"
+                                            className="w-50 p-3"
                                             src={logo}
                                             alt=""
                                         />
                                     </Link>
                                 </div>
+                                <div className="col-lg-6">
+                                    <p>
+                                        <small className="text-danger">
+                                            * This dashboard is not fully mobile
+                                            responsive yet
+                                        </small>
+                                    </p>
+                                </div>
                                 <div className="col-lg-2 d-flex justify-content-end align-items-center">
-                                    {/* <button
-                                        onClick={logout}
-                                        className="fw-semi-bold btn border-0
-                            rounded-0 p-0 
-                            text-dark"
-                                    >
-                                        <Link
-                                            to="/login"
-                                            className="text-decoration-none text-dark"
-                                        >
-                                            Log Out
-                                        </Link>
-                                    </button> */}
                                     <div>
                                         <h6 className="fw-semi-bold m-0 text-success">
                                             {data?.name || user?.displayName}
@@ -76,11 +71,11 @@ const Dashboard = () => {
             {/* DASHBOARD MENU START */}
             <div
                 className="container-fluid bg-light"
-                style={{ height: "93vh" }}
+                // style={{ height: "93vh" }}
             >
                 <div className="row">
-                    <div className="col-lg-2 p-0">
-                        <Navbar bg="light" expand="lg">
+                    <div className="col-lg-2 bg-white p-0">
+                        <Navbar bg="white" expand="lg">
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav d-block">
                                 <Nav className=" m-0 d-block w-100">
@@ -121,7 +116,7 @@ const Dashboard = () => {
                     </div>
                     <div
                         className="col-lg-10 border-start"
-                        style={{ height: "93vh" }}
+                        style={{ height: "91vh", backgroundColor: "#F4F7FC" }}
                     >
                         <Outlet></Outlet>
                     </div>
