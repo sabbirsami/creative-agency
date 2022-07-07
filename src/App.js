@@ -13,6 +13,7 @@ import UpdateProfile from "./Components/Dashboard/UpdateProfile";
 import Order from "./Components/Order";
 import { Toaster } from "react-hot-toast";
 import MyOrder from "./Components/Dashboard/MyOrder";
+import ServiceList from "./Components/Dashboard/ServiceList";
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/sign-up" element={<SignUp />}></Route>
                 <Route path="/dashboard" element={<Dashboard />}>
-                    <Route path="service" element={<ContactSection />}></Route>
+                    <Route path="service" element={<ServiceList />}></Route>
                     <Route index element={<Profile />}></Route>
                     <Route
                         path="add-admin"
