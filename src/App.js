@@ -13,6 +13,7 @@ import Profile from "./Components/Dashboard/Profile";
 import UpdateProfile from "./Components/Dashboard/UpdateProfile";
 import Order from "./Components/Order";
 import { Toaster } from "react-hot-toast";
+import MyOrder from "./Components/Dashboard/MyOrder";
 
 function App() {
     return (
@@ -36,7 +37,7 @@ function App() {
                         path="manage-order"
                         element={<ContactSection />}
                     ></Route>
-                    <Route path="my-order" element={<ContactSection />}></Route>
+                    <Route path="my-order" element={<MyOrder />}></Route>
                     <Route
                         path="manage-review"
                         element={<ContactSection />}
