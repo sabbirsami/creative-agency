@@ -8,6 +8,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
 import { signOut } from "firebase/auth";
+import Loading from "./Loading";
 
 const HeaderNavbar = () => {
     const [show, setShow] = useState(false);
@@ -16,7 +17,7 @@ const HeaderNavbar = () => {
     const handleShow = () => setShow(true);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <Loading />;
     }
     const logout = () => {
         signOut(auth);

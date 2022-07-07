@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import toast from "react-hot-toast";
+import Loading from "../Loading";
 
 const ManageUsers = () => {
     const {
@@ -11,7 +12,7 @@ const ManageUsers = () => {
         fetch(`http://localhost:5000/users`).then((res) => res.json())
     );
     if (isLoading) {
-        return <p>Loading..</p>;
+        return <Loading />;
     }
     const handleDelete = (id) => {
         console.log(id);

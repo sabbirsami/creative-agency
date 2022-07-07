@@ -5,13 +5,14 @@ import auth from "../../firebase.init";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import Loading from "../Loading";
 
 const UpdateProfile = () => {
     const [user, loading] = useAuthState(auth);
     const { register, reset, handleSubmit } = useForm();
 
     if (loading) {
-        return <p>Loading....</p>;
+        return <Loading />;
     }
 
     const onSubmit = (data) => {

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import profile from "../../images/profile.png";
+import Loading from "../Loading";
 
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
@@ -15,7 +16,7 @@ const Profile = () => {
     );
 
     if (loading || isLoading) {
-        return <p>Loading....</p>;
+        return <Loading />;
     }
 
     return (

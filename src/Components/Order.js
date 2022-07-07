@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../firebase.init";
+import Loading from "./Loading";
 
 const Order = () => {
     const { id } = useParams();
@@ -19,7 +20,7 @@ const Order = () => {
     );
     const [validated, setValidated] = useState(false);
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <Loading />;
     }
     const { name, price, dic, feature, _id } = service[0];
 

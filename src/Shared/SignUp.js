@@ -12,6 +12,7 @@ import {
     useSignInWithGoogle,
     useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import Loading from "./Loading";
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ const SignUp = () => {
         reset();
     };
     if (loading || updating || googleLoading || facebookLoading) {
-        return <p>Loading...</p>;
+        return <Loading />;
     }
 
     let loginError;

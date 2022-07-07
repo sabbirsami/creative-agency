@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useQuery } from "react-query";
+import Loading from "../Loading";
 import Service from "./Service";
 
 const Services = () => {
@@ -8,7 +9,7 @@ const Services = () => {
         fetch("http://localhost:5000/services").then((res) => res.json())
     );
     if (isLoading) {
-        return <p>Loading..</p>;
+        return <Loading />;
     }
     return (
         <div className="pb-5">

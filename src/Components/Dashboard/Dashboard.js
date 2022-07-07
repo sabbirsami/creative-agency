@@ -12,6 +12,7 @@ import logo from "../../images/logos/logo.png";
 import DashboardLink from "../../Shared/DashboardLink";
 import { Link, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Loading from "../Loading";
 
 const Dashboard = () => {
     const [user, loading] = useAuthState(auth);
@@ -23,7 +24,7 @@ const Dashboard = () => {
     );
 
     if (loading || isLoading) {
-        return <p>Loading....</p>;
+        return <Loading />;
     }
 
     return (
