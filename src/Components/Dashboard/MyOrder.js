@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import toast from "react-hot-toast";
+import Loading from "../../Shared/Loading";
 
 const MyOrder = () => {
     const [user] = useAuthState(auth);
@@ -19,7 +20,7 @@ const MyOrder = () => {
         ).then((res) => res.json())
     );
     if (isLoading) {
-        return <p>Loading..</p>;
+        return <Loading />;
     }
     const handleCancel = (id) => {
         console.log(id);
